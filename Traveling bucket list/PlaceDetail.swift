@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PlaceDetail.swift
 //  Traveling bucket list
 //
 //  Created by Kolchedantsev Alexey on 31.05.2020.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PlaceDetail: View {
     var body: some View {
-        Text("Hello, World!")
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PlaceDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PlaceDetail()
     }
 }

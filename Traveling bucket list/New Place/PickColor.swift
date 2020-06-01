@@ -29,7 +29,7 @@ struct PickColor: View {
                 ZStack(alignment: .topLeading) {
                     Spacer()
                     ForEach(Colors.all, id: \.self) { color in
-                        self.item(for: color)
+                        self.item(for: Color(color))
                             .padding([.horizontal, .vertical], 4)
                             .alignmentGuide(.leading, computeValue: { d in
                                 if (abs(width - d.width) > g.size.width)
@@ -85,6 +85,6 @@ struct PickColor: View {
 struct PickColor_Previews: PreviewProvider {
     static var previews: some View {
         PickColor(shouldChangeColor: .constant(false),
-                  color: .constant(Colors.c_1))
+                  color: .constant(Color(Colors.c_1)))
     }
 }

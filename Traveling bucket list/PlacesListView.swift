@@ -10,7 +10,8 @@ import SwiftUI
 import UIKit
 
 struct PlacesListView: View {
-    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
     @State private var showModal: Bool = false
     @State private var navigationButtonID = UUID()
     @State private var menuButtonID = UUID()
@@ -22,12 +23,10 @@ struct PlacesListView: View {
     var body: some View {
         NavigationView {
                 List {
-                    ForEach(placeData){ place in
+                    ForEach(places){ place in
                         PlaceRow(place: place)
                     }
-                    .onDelete(perform: { _ in
-                        // delete
-                    })
+                    .onDelete(perform: removePlace)
                 }
             .navigationBarTitle("Must see")
                 .navigationBarItems(
@@ -40,13 +39,21 @@ struct PlacesListView: View {
                     }
                     .id(self.navigationButtonID)
                     .sheet(isPresented: self.$showModal){
-                        NewPlace().onDisappear {
+                        NewPlacePresenter().environment(\.managedObjectContext, self.moc).onDisappear {
                             self.navigationButtonID = UUID()
                         }
                     }
             )
                 .foregroundColor(.black)
         }
+    }
+    
+    func removePlace(at offsets: IndexSet) {
+        for index in offsets {
+            let place = places[index]
+            moc.delete(place)
+        }
+        try? moc.save()
     }
 }
 

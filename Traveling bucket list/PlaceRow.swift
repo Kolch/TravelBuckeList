@@ -14,18 +14,19 @@ struct PlaceRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(place.title)
+                Text(place.title ?? "Unknown")
                     .font(.title)
-                Text(place.category.rawValue)
+                Text(place.info ?? "")
                     .font(.subheadline)
             }
             .padding()
             Spacer()
         }
-        .background(Color.gray.opacity(0.13))
+        .background(Color.gray.opacity(0.3))
         .cornerRadius(10)
     }
 }
+// Color.getColor(data: place.color ?? Data())
 
 struct PlaceRow_Previews: PreviewProvider {
     static var previews: some View {

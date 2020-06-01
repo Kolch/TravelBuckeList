@@ -11,7 +11,7 @@ import CoreLocation
 import UIKit
 import SwiftUI
 
-var placeData: [Place] = load("placeData.json")
+var placeData: [Place] = []
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

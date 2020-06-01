@@ -18,11 +18,12 @@
 		A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD124841C3E000BD930 /* PlaceRow.swift */; };
 		A866FAD424841C62000BD930 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD324841C62000BD930 /* Place.swift */; };
 		A866FAD724841F02000BD930 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD624841F02000BD930 /* Data.swift */; };
+		A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
 		A8F1B24C2484203800F8E64C /* placeData.json in Resources */ = {isa = PBXBuildFile; fileRef = A8F1B24B2484203800F8E64C /* placeData.json */; };
 		A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */; };
-		A8F1B252248432B000F8E64C /* NewPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B251248432B000F8E64C /* NewPlace.swift */; };
+		A8F1B252248432B000F8E64C /* NewPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */; };
 		A8F1B254248444E700F8E64C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B253248444E700F8E64C /* Colors.swift */; };
-		A8F1B25724844ED200F8E64C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25624844ED200F8E64C /* HeaderView.swift */; };
+		A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25624844ED200F8E64C /* NewPlaceView.swift */; };
 		A8F1B2592484500900F8E64C /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B2582484500900F8E64C /* FormView.swift */; };
 		A8F1B25B24845AF200F8E64C /* PickColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25A24845AF200F8E64C /* PickColor.swift */; };
 /* End PBXBuildFile section */
@@ -41,11 +42,12 @@
 		A866FAD124841C3E000BD930 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
 		A866FAD324841C62000BD930 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		A866FAD624841F02000BD930 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelBucketList.xcdatamodel; sourceTree = "<group>"; };
 		A8F1B24B2484203800F8E64C /* placeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = placeData.json; sourceTree = "<group>"; };
 		A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
-		A8F1B251248432B000F8E64C /* NewPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlace.swift; sourceTree = "<group>"; };
+		A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlacePresenter.swift; sourceTree = "<group>"; };
 		A8F1B253248444E700F8E64C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		A8F1B25624844ED200F8E64C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A8F1B25624844ED200F8E64C /* NewPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceView.swift; sourceTree = "<group>"; };
 		A8F1B2582484500900F8E64C /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		A8F1B25A24845AF200F8E64C /* PickColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				A8F1B24B2484203800F8E64C /* placeData.json */,
+				A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,8 +154,8 @@
 		A8F1B25524844E6B00F8E64C /* New Place */ = {
 			isa = PBXGroup;
 			children = (
-				A8F1B251248432B000F8E64C /* NewPlace.swift */,
-				A8F1B25624844ED200F8E64C /* HeaderView.swift */,
+				A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */,
+				A8F1B25624844ED200F8E64C /* NewPlaceView.swift */,
 				A8F1B2582484500900F8E64C /* FormView.swift */,
 				A8F1B25A24845AF200F8E64C /* PickColor.swift */,
 			);
@@ -236,13 +239,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8F1B25B24845AF200F8E64C /* PickColor.swift in Sources */,
-				A8F1B252248432B000F8E64C /* NewPlace.swift in Sources */,
+				A8F1B252248432B000F8E64C /* NewPlacePresenter.swift in Sources */,
 				A8F1B254248444E700F8E64C /* Colors.swift in Sources */,
 				A8465DDD248513B200E1EB50 /* NavigationDrawer.swift in Sources */,
 				A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */,
 				A866FAD724841F02000BD930 /* Data.swift in Sources */,
+				A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */,
 				A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */,
-				A8F1B25724844ED200F8E64C /* HeaderView.swift in Sources */,
+				A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */,
 				A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */,
 				A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */,
 				A866FAC024841A8B000BD930 /* PlacesListView.swift in Sources */,
@@ -444,6 +448,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */,
+			);
+			currentVersion = A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */;
+			path = TravelBucketList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A866FAB024841A8B000BD930 /* Project object */;
 }

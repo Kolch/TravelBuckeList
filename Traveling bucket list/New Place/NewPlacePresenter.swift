@@ -8,12 +8,14 @@
 
 import SwiftUI
 
-struct NewPlace: View {
+struct NewPlacePresenter: View {
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
-    @State private var showColors: Bool = false
+    
+    @State private var isPickingColor: Bool = false
     @State var color: Color = Colors.random
     @State var didChangeColor: Bool = false
-    
+    @State private var didSave: Bool = false
     var transition: AnyTransition {
         return AnyTransition.scale.combined(with: .opacity)
     }
@@ -21,19 +23,22 @@ struct NewPlace: View {
     var body: some View {
         ZStack {
             VStack {
-                HeaderView(color: self.$color)
-                FormView(showColor: $showColors, color: self.$color)
+                NewPlaceView(isPickingColor: $isPickingColor, color: $color).environment(\.managedObjectContext, moc)
             }
-            if showColors {
-                PickColor(shouldChangeColor: $showColors, color: $color)
+            if isPickingColor {
+                PickColor(shouldChangeColor: $isPickingColor, color: $color)
                     .gesture(
                         TapGesture().onEnded{ _ in
                             withAnimation {
-                                self.showColors.toggle()
+                                self.isPickingColor.toggle()
                             }
                         }
                 )
                     .transition(transition)
+            }
+            
+            if didSave {
+                
             }
         }
     }
@@ -41,7 +46,7 @@ struct NewPlace: View {
 
 struct NewPlace_Previews: PreviewProvider {
     static var previews: some View {
-        NewPlace()
+        NewPlacePresenter()
     }
 }
 

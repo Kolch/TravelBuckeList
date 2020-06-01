@@ -18,34 +18,51 @@ struct FormView: View {
     @State private var descripton = ""
     @State private var showColor = false
     @State var color: Color
+    @State var shouldChangeColor = false
     //@State var pickColor = false
     
+    var transition: AnyTransition {
+        return AnyTransition.scale.combined(with: .opacity)
+    }
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Description")
-                .fontWeight(.medium)
-            TextField("Add some notes if you want...", text: $descripton)
-            Divider()
-            Button(action: {
-                self.showColor.toggle()
-            }){
-                HStack {
-                    Text("Color")
-                    Spacer()
-                    Ellipse()
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(color)
+        ZStack {
+            VStack(alignment: .leading) {
+                Text("Description")
+                    .fontWeight(.medium)
+                TextField("Add some notes if you want...", text: $descripton)
+                Divider()
+                Button(action: {
+                    withAnimation {
+                        self.showColor.toggle()
+                        let generator = UIImpactFeedbackGenerator(style: .heavy)
+                        generator.impactOccurred()
+                    }
+                }){
+                    HStack {
+                        Text("Color")
+                        Spacer()
+                        Ellipse()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .foregroundColor(color)
+                    }
                 }
+                .foregroundColor(.black)
+                Divider()
+                Spacer()
+            }.padding()
+            if showColor {
+                PickColor(shouldChangeColor: $showColor)
+                    .gesture(
+                        TapGesture().onEnded{ _ in
+                            withAnimation {
+                                self.showColor.toggle()
+                            }
+                        }
+                )
+                    .transition(transition)
             }
-            .foregroundColor(.black)
-            Divider()
-            Spacer()
-            
-//            if showColor {
-//                PickColor()
-//                    .transition(.moveAndFade)
-//            }
-        }.padding()
+        }
     }
 }
 

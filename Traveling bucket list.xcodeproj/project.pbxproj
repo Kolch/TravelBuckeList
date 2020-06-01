@@ -17,14 +17,11 @@
 		A866FAC824841A8C000BD930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC624841A8C000BD930 /* LaunchScreen.storyboard */; };
 		A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD124841C3E000BD930 /* PlaceRow.swift */; };
 		A866FAD424841C62000BD930 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD324841C62000BD930 /* Place.swift */; };
-		A866FAD724841F02000BD930 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD624841F02000BD930 /* Data.swift */; };
 		A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
-		A8F1B24C2484203800F8E64C /* placeData.json in Resources */ = {isa = PBXBuildFile; fileRef = A8F1B24B2484203800F8E64C /* placeData.json */; };
 		A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */; };
 		A8F1B252248432B000F8E64C /* NewPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */; };
 		A8F1B254248444E700F8E64C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B253248444E700F8E64C /* Colors.swift */; };
 		A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25624844ED200F8E64C /* NewPlaceView.swift */; };
-		A8F1B2592484500900F8E64C /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B2582484500900F8E64C /* FormView.swift */; };
 		A8F1B25B24845AF200F8E64C /* PickColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25A24845AF200F8E64C /* PickColor.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,14 +38,11 @@
 		A866FAC924841A8C000BD930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A866FAD124841C3E000BD930 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
 		A866FAD324841C62000BD930 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		A866FAD624841F02000BD930 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelBucketList.xcdatamodel; sourceTree = "<group>"; };
-		A8F1B24B2484203800F8E64C /* placeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = placeData.json; sourceTree = "<group>"; };
 		A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
 		A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlacePresenter.swift; sourceTree = "<group>"; };
 		A8F1B253248444E700F8E64C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A8F1B25624844ED200F8E64C /* NewPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceView.swift; sourceTree = "<group>"; };
-		A8F1B2582484500900F8E64C /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		A8F1B25A24845AF200F8E64C /* PickColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,10 +87,9 @@
 			children = (
 				A866FACF24841ABC000BD930 /* Application */,
 				A866FAD524841DBA000BD930 /* Model */,
-				A866FABF24841A8B000BD930 /* PlacesListView.swift */,
-				A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */,
-				A866FAD124841C3E000BD930 /* PlaceRow.swift */,
 				A8465DDB2485139600E1EB50 /* Side Menu */,
+				A86FE8D0248569AA0076ABB0 /* Place detail */,
+				A86FE8CF248569A10076ABB0 /* Places List */,
 				A8F1B25524844E6B00F8E64C /* New Place */,
 				A8F1B24E2484205400F8E64C /* Resources */,
 				A866FAD024841AD0000BD930 /* Supporting Files */,
@@ -136,16 +129,31 @@
 			isa = PBXGroup;
 			children = (
 				A866FAD324841C62000BD930 /* Place.swift */,
-				A866FAD624841F02000BD930 /* Data.swift */,
 				A8F1B253248444E700F8E64C /* Colors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A86FE8CF248569A10076ABB0 /* Places List */ = {
+			isa = PBXGroup;
+			children = (
+				A866FABF24841A8B000BD930 /* PlacesListView.swift */,
+				A866FAD124841C3E000BD930 /* PlaceRow.swift */,
+			);
+			path = "Places List";
+			sourceTree = "<group>";
+		};
+		A86FE8D0248569AA0076ABB0 /* Place detail */ = {
+			isa = PBXGroup;
+			children = (
+				A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */,
+			);
+			path = "Place detail";
+			sourceTree = "<group>";
+		};
 		A8F1B24E2484205400F8E64C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A8F1B24B2484203800F8E64C /* placeData.json */,
 				A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */,
 			);
 			path = Resources;
@@ -156,7 +164,6 @@
 			children = (
 				A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */,
 				A8F1B25624844ED200F8E64C /* NewPlaceView.swift */,
-				A8F1B2582484500900F8E64C /* FormView.swift */,
 				A8F1B25A24845AF200F8E64C /* PickColor.swift */,
 			);
 			path = "New Place";
@@ -225,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A866FAC824841A8C000BD930 /* LaunchScreen.storyboard in Resources */,
-				A8F1B24C2484203800F8E64C /* placeData.json in Resources */,
 				A866FAC524841A8C000BD930 /* Preview Assets.xcassets in Resources */,
 				A866FAC224841A8C000BD930 /* Assets.xcassets in Resources */,
 			);
@@ -243,7 +249,6 @@
 				A8F1B254248444E700F8E64C /* Colors.swift in Sources */,
 				A8465DDD248513B200E1EB50 /* NavigationDrawer.swift in Sources */,
 				A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */,
-				A866FAD724841F02000BD930 /* Data.swift in Sources */,
 				A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */,
 				A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */,
 				A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */,
@@ -251,7 +256,6 @@
 				A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */,
 				A866FAC024841A8B000BD930 /* PlacesListView.swift in Sources */,
 				A866FAD424841C62000BD930 /* Place.swift in Sources */,
-				A8F1B2592484500900F8E64C /* FormView.swift in Sources */,
 				A8465DDA2485139100E1EB50 /* MenuContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

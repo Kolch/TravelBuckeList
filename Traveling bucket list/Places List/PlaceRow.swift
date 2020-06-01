@@ -22,18 +22,18 @@ struct PlaceRow: View {
             .padding()
             Spacer()
         }
-        .background(Color.gray.opacity(0.3))
+        .background(Color(place.color as? UIColor ?? UIColor.lightGray))
         .cornerRadius(10)
     }
 }
-// Color.getColor(data: place.color ?? Data())
 
-struct PlaceRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            PlaceRow(place: placeData[0])
-            PlaceRow(place: placeData[1])
-        }
-            .previewLayout(.fixed(width: 300, height: 100))
-    }
-}
+//
+//struct PlaceRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            PlaceRow(place: placeData[0])
+//            PlaceRow(place: placeData[1])
+//        }
+//            .previewLayout(.fixed(width: 300, height: 100))
+//    }
+//}

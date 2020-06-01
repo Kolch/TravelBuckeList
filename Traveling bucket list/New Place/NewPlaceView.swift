@@ -94,7 +94,7 @@ struct NewPlaceView: View {
         place.id = UUID()
         place.title = self.title
         place.info = self.descripton
-        //place.color = self.color.encode()
+        place.color = self.color.uiColor()
         try? moc.save()
     }
 }

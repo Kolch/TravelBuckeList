@@ -41,6 +41,9 @@ struct NewPlacePresenter: View {
                 
             }
         }
+        .onAppear {
+            
+        }
     }
 }
 

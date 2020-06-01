@@ -18,14 +18,18 @@
 		A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD124841C3E000BD930 /* PlaceRow.swift */; };
 		A866FAD424841C62000BD930 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD324841C62000BD930 /* Place.swift */; };
 		A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
+		A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */; };
 		A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */; };
 		A8F1B252248432B000F8E64C /* NewPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */; };
 		A8F1B254248444E700F8E64C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B253248444E700F8E64C /* Colors.swift */; };
 		A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25624844ED200F8E64C /* NewPlaceView.swift */; };
 		A8F1B25B24845AF200F8E64C /* PickColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25A24845AF200F8E64C /* PickColor.swift */; };
+		D68FC3DF61D5C542C9C540D5 /* Pods_Traveling_bucket_list.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14A50A5678F924B158CCA1A /* Pods_Traveling_bucket_list.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B23371B6CA663779776C5BC /* Pods-Traveling bucket list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.debug.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.debug.xcconfig"; sourceTree = "<group>"; };
+		7DEF84731C62032592297E88 /* Pods-Traveling bucket list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.release.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.release.xcconfig"; sourceTree = "<group>"; };
 		A8465DD92485139100E1EB50 /* MenuContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContent.swift; sourceTree = "<group>"; };
 		A8465DDC248513B200E1EB50 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 		A866FAB824841A8B000BD930 /* Traveling bucket list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Traveling bucket list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,11 +43,13 @@
 		A866FAD124841C3E000BD930 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
 		A866FAD324841C62000BD930 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelBucketList.xcdatamodel; sourceTree = "<group>"; };
+		A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiled.swift; sourceTree = "<group>"; };
 		A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
 		A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlacePresenter.swift; sourceTree = "<group>"; };
 		A8F1B253248444E700F8E64C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A8F1B25624844ED200F8E64C /* NewPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceView.swift; sourceTree = "<group>"; };
 		A8F1B25A24845AF200F8E64C /* PickColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickColor.swift; sourceTree = "<group>"; };
+		C14A50A5678F924B158CCA1A /* Pods_Traveling_bucket_list.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveling_bucket_list.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,12 +57,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68FC3DF61D5C542C9C540D5 /* Pods_Traveling_bucket_list.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70D602330C39E341DBCB6023 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B23371B6CA663779776C5BC /* Pods-Traveling bucket list.debug.xcconfig */,
+				7DEF84731C62032592297E88 /* Pods-Traveling bucket list.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		98A26E891DA6BDD5B8B9E250 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C14A50A5678F924B158CCA1A /* Pods_Traveling_bucket_list.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A8465DDB2485139600E1EB50 /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +96,8 @@
 			children = (
 				A866FABA24841A8B000BD930 /* Traveling bucket list */,
 				A866FAB924841A8B000BD930 /* Products */,
+				70D602330C39E341DBCB6023 /* Pods */,
+				98A26E891DA6BDD5B8B9E250 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +148,7 @@
 				A866FAC124841A8C000BD930 /* Assets.xcassets */,
 				A866FAC624841A8C000BD930 /* LaunchScreen.storyboard */,
 				A866FAC924841A8C000BD930 /* Info.plist */,
+				A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -176,17 +204,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A866FACC24841A8C000BD930 /* Build configuration list for PBXNativeTarget "Traveling bucket list" */;
 			buildPhases = (
+				576E453C21C1782C0951542A /* [CP] Check Pods Manifest.lock */,
 				A866FAB424841A8B000BD930 /* Sources */,
 				A866FAB524841A8B000BD930 /* Frameworks */,
 				A866FAB624841A8B000BD930 /* Resources */,
+				2B5E884DDF0DEE2CD0FE8340 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Traveling bucket list";
-			packageProductDependencies = (
-			);
 			productName = "Traveling bucket list";
 			productReference = A866FAB824841A8B000BD930 /* Traveling bucket list.app */;
 			productType = "com.apple.product-type.application";
@@ -215,8 +243,6 @@
 				Base,
 			);
 			mainGroup = A866FAAF24841A8B000BD930;
-			packageReferences = (
-			);
 			productRefGroup = A866FAB924841A8B000BD930 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +265,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B5E884DDF0DEE2CD0FE8340 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		576E453C21C1782C0951542A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Traveling bucket list-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A866FAB424841A8B000BD930 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -254,6 +322,7 @@
 				A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */,
 				A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */,
 				A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */,
+				A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */,
 				A866FAC024841A8B000BD930 /* PlacesListView.swift in Sources */,
 				A866FAD424841C62000BD930 /* Place.swift in Sources */,
 				A8465DDA2485139100E1EB50 /* MenuContent.swift in Sources */,
@@ -390,6 +459,7 @@
 		};
 		A866FACD24841A8C000BD930 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B23371B6CA663779776C5BC /* Pods-Traveling bucket list.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -411,6 +481,7 @@
 		};
 		A866FACE24841A8C000BD930 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DEF84731C62032592297E88 /* Pods-Traveling bucket list.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

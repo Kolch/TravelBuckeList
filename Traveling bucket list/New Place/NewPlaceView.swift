@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct NewPlaceView: View {
     @Environment(\.managedObjectContext) var moc
@@ -17,7 +18,7 @@ struct NewPlaceView: View {
     
     @State private var title = ""
     @State private var descripton = ""
-    
+    @State private var viewIsReady = false
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 40.0) {
@@ -35,7 +36,7 @@ struct NewPlaceView: View {
                         .frame(alignment: .leading)
                     Spacer()
                     Button(action: {
-                        // save to care data
+                        // save to core data
                         self.addPlace()
                         let generator = UINotificationFeedbackGenerator()
                         generator.notificationOccurred(.success)
@@ -62,6 +63,7 @@ struct NewPlaceView: View {
                 TextField("Add some notes if you want...", text: $descripton)
                 Divider()
                 Button(action: {
+                    UIApplication.shared.endEditing()
                     withAnimation {
                         self.isPickingColor.toggle()
                     }
@@ -78,6 +80,8 @@ struct NewPlaceView: View {
                 Divider()
                 Spacer()
             }.padding()
+        }.onDisappear {
+            UIApplication.shared.endEditing()
         }
     }
     

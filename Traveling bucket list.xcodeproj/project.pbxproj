@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A8465DDA2485139100E1EB50 /* MenuContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8465DD92485139100E1EB50 /* MenuContent.swift */; };
 		A8465DDD248513B200E1EB50 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8465DDC248513B200E1EB50 /* NavigationDrawer.swift */; };
-		A8465DE024853E0900E1EB50 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A8465DDF24853E0900E1EB50 /* SideMenu */; };
 		A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABB24841A8B000BD930 /* AppDelegate.swift */; };
 		A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABD24841A8B000BD930 /* SceneDelegate.swift */; };
 		A866FAC024841A8B000BD930 /* PlacesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABF24841A8B000BD930 /* PlacesListView.swift */; };
@@ -56,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8465DE024853E0900E1EB50 /* SideMenu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +176,6 @@
 			);
 			name = "Traveling bucket list";
 			packageProductDependencies = (
-				A8465DDF24853E0900E1EB50 /* SideMenu */,
 			);
 			productName = "Traveling bucket list";
 			productReference = A866FAB824841A8B000BD930 /* Traveling bucket list.app */;
@@ -209,7 +206,6 @@
 			);
 			mainGroup = A866FAAF24841A8B000BD930;
 			packageReferences = (
-				A8465DDE24853E0900E1EB50 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = A866FAB924841A8B000BD930 /* Products */;
 			projectDirPath = "";
@@ -448,25 +444,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A8465DDE24853E0900E1EB50 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Vidhyadharan-Mohanram/SideMenu";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A8465DDF24853E0900E1EB50 /* SideMenu */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A8465DDE24853E0900E1EB50 /* XCRemoteSwiftPackageReference "SideMenu" */;
-			productName = SideMenu;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A866FAB024841A8B000BD930 /* Project object */;
 }

@@ -13,20 +13,20 @@ import SwiftUI
 //    @Binding var isOpen: Bool
 //
 //    var body: some View {
-//        HStack {
-//            MenuContent()
-//                .frame(width: self.width)
-//                .offset(x: self.isOpen ? 0 : -self.width)
-//                .animation(.easeInOut)
-//            Spacer()
-//        }
-//        .background(Color.clear)
+////        HStack {
+////            MenuContent()
+////                .frame(width: self.width)
+////                .offset(x: self.isOpen ? 0 : -self.width)
+////                .animation(.easeInOut)
+////            Spacer()
+////        }
+////        .background(Color.clear)
 //    }
 //}
 
 struct NavigationDrawer_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(isOpen: .constant(true))
     }
 }
 
@@ -34,56 +34,52 @@ struct NavigationDrawer_Previews: PreviewProvider {
 struct MenuView : View {
     @State private var schemeMode: Bool = false
     @State private var changeMode: Bool = false
+    @Binding var isOpen: Bool
+    private let width = UIScreen.main.bounds.width - 100
     var body: some View {
-        ZStack(alignment: .topLeading) {
-        Rectangle()
-            .fill(Color.white)
-            .frame(width: 300, height: 700)
-        .cornerRadius(20)
-            .shadow(color: .gray, radius: 8)
-            .position(x: 150, y: 255)
-            
-            VStack(alignment: .leading, spacing: 20) {
-                Button(action: {}) {
-            HStack {
-                Image(systemName: "person.circle").font(.system(size: 25))
-                    .foregroundColor(.black)
-                Text("Profile").foregroundColor(.black)
-                    }
-            }
-                Button(action: {}) {
-                HStack {
-                    Image(systemName: "creditcard").font(.system(size: 25))
-                        .foregroundColor(.black)
-                    Text("Payment methods").foregroundColor(.black)
-                    }
-                }
-                
-                Button(action: {}) {
-                HStack {
-                    Image(systemName: "folder").font(.system(size: 25))
-                    .foregroundColor(.black)
-                    Text("Documents").foregroundColor(.black)
-                    }
-                }
-                
-                Button(action: {}) {
-                HStack {
-                    Image(systemName: "gear").font(.system(size: 25))
-                    .foregroundColor(.black)
-                    Text("Setting").foregroundColor(.black)
-                    }
-                }
-                
-                Button(action: {}) {
-                HStack {
-                    Image(systemName: "power").font(.system(size: 25))
-                    .foregroundColor(.black)
-                    Text("Logout").foregroundColor(.black)
-                    }
-                }
-            }.padding()
-           
+//        ZStack(alignment: .topLeading) {
+//            Rectangle()
+//                .fill(Color.white)
+//                .frame(width: 300, height: 700)
+//                .cornerRadius(20)
+//                .shadow(color: .gray, radius: 8)
+//                .position(x: 150, y: 255)
+//
+//            VStack(alignment: .leading, spacing: 20) {
+//                Button(action: {}) {
+//                    HStack {
+//                        Image(systemName: "person.circle").font(.system(size: 25))
+//                            .foregroundColor(.black)
+//                        Text("Profile").foregroundColor(.black)
+//                    }
+//                }
+//
+//                Button(action: {}) {
+//                    HStack {
+//                        Image(systemName: "person.circle").font(.system(size: 25))
+//                            .foregroundColor(.black)
+//                        Text("Profile").foregroundColor(.black)
+//                    }
+//                }
+//
+//                Button(action: {}) {
+//                    HStack {
+//                        Image(systemName: "person.circle").font(.system(size: 25))
+//                            .foregroundColor(.black)
+//                        Text("Profile").foregroundColor(.black)
+//                    }
+//                }
+//            }.padding()
+//
+//        }
+        
+        HStack {
+            MenuContent()
+                .frame(width: self.width, height: UIScreen.main.bounds.height)
+                .offset(x: self.isOpen ? 0 : -self.width)
+                .animation(.easeInOut)
+            Spacer()
         }
+        .background(Color.clear)
     }
 }

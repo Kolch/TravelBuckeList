@@ -22,18 +22,23 @@ struct PlacesListView: View {
     
     var body: some View {
         NavigationView {
+            ZStack {
                 List {
                     ForEach(places){ place in
                         PlaceRow(place: place)
                     }
                     .onDelete(perform: removePlace)
                 }
+                if places.isEmpty {
+                    Text("Empty")
+                }
+            }
             .navigationBarTitle("Must see")
-                .navigationBarItems(
-                    trailing: Button(action: {
-                        self.showModal.toggle()
-                        let generator = UIImpactFeedbackGenerator(style: .heavy)
-                        generator.impactOccurred()
+            .navigationBarItems(
+                trailing: Button(action: {
+                    self.showModal.toggle()
+                    let generator = UIImpactFeedbackGenerator(style: .heavy)
+                    generator.impactOccurred()
                     }) {
                         Image("plus")
                     }
@@ -59,6 +64,10 @@ struct PlacesListView: View {
 
 struct PlacesListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesListView()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let place = Place.init(context: context)
+        place.title = "Title"
+        place.color = Colors.random.uiColor()
+        return PlacesListView().environment(\.managedObjectContext, context)
     }
 }

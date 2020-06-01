@@ -9,17 +9,12 @@
 import SwiftUI
 
 struct MenuContent: View {
+    
     var body: some View {
         List {
-            Text("My Profile").onTapGesture {
-                print("My Profile")
-            }
-            Text("Posts").onTapGesture {
-                print("Posts")
-            }
-            Text("Logout").onTapGesture {
-                print("Logout")
-            }
+            Text("My Profile")
+            Text("Posts")
+            Text("Logout")
         }
     }
 }

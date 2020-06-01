@@ -33,6 +33,6 @@ struct PlaceRow_Previews: PreviewProvider {
             PlaceRow(place: placeData[0])
             PlaceRow(place: placeData[1])
         }
-            .previewLayout(.fixed(width: 300, height: 80))
+            .previewLayout(.fixed(width: 300, height: 100))
     }
 }

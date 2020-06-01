@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct NewPlace: View {
-    let headerView = HeaderView()
+    @Environment(\.presentationMode) var presentationMode
     @State private var showColors: Bool = false
+    @State var color: Color = Colors.random
+    @State var didChangeColor: Bool = false
     
     var transition: AnyTransition {
         return AnyTransition.scale.combined(with: .opacity)
@@ -19,11 +21,11 @@ struct NewPlace: View {
     var body: some View {
         ZStack {
             VStack {
-                headerView
-                FormView(showColor: $showColors, color: headerView.color)
+                HeaderView(color: self.$color)
+                FormView(showColor: $showColors, color: self.$color)
             }
             if showColors {
-                PickColor(shouldChangeColor: $showColors)
+                PickColor(shouldChangeColor: $showColors, color: $color)
                     .gesture(
                         TapGesture().onEnded{ _ in
                             withAnimation {
@@ -43,17 +45,8 @@ struct NewPlace_Previews: PreviewProvider {
     }
 }
 
-
-struct HiddenNavigationBar: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
-    }
-}
-
-extension View {
-    func hiddenNavigationBarStyle() -> some View {
-        modifier( HiddenNavigationBar() )
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

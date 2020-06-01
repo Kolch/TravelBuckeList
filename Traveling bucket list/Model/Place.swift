@@ -10,14 +10,20 @@ import Foundation
 import SwiftUI
 
 struct Place: Hashable, Codable, Identifiable {
+    
     var id: Int
     var title: String
     var category: Category
     var isVisited: Bool = false
+    //var color: Colors
     
     enum Category: String, CaseIterable, Codable, Hashable {
         case food = "Food"
         case social = "Social"
         case art = "Art"
+    }
+    
+    static func == (lhs: Place, rhs: Place) -> Bool {
+        return lhs.title == rhs.title
     }
 }

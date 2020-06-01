@@ -9,10 +9,9 @@
 import SwiftUI
 
 struct HeaderView: View {
-    
     @Environment(\.presentationMode) var presentationMode
     @State private var title = ""
-    @State var color: Color = Colors.yellow
+    @Binding var color: Color
     @State private var descripton = ""
     
     var body: some View {
@@ -60,7 +59,7 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
+        HeaderView(color: .constant(.yellow))
             .previewLayout(.fixed(width: 400, height: 500))
     }
 }

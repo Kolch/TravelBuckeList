@@ -17,14 +17,15 @@ extension AnyTransition {
 struct FormView: View {
     @State private var descripton = ""
     @Binding var showColor: Bool
-    @State var color: Color
+    @Binding var color: Color
     
+    var categories = ["Art", "Social", "Other"]
+    @State private var selectedColor = 0
     var transition: AnyTransition {
         return AnyTransition.scale.combined(with: .opacity)
     }
     
     var body: some View {
-      //  ZStack {
             VStack(alignment: .leading) {
                 Text("Description")
                     .fontWeight(.medium)
@@ -33,8 +34,6 @@ struct FormView: View {
                 Button(action: {
                     withAnimation {
                         self.showColor.toggle()
-                        let generator = UIImpactFeedbackGenerator(style: .heavy)
-                        generator.impactOccurred()
                     }
                 }){
                     HStack {
@@ -42,7 +41,7 @@ struct FormView: View {
                         Spacer()
                         Ellipse()
                             .frame(width: 25, height: 25, alignment: .center)
-                            .foregroundColor(color)
+                            .foregroundColor(circleColor)
                     }
                 }
                 .foregroundColor(.black)
@@ -50,11 +49,15 @@ struct FormView: View {
                 Spacer()
             }.padding()
     }
+    
+    var circleColor: Color {
+        return color
+    }
 }
-//
-//struct FormView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FormView(showColor: <#Binding<Bool>#>, color: Color.yellow)
-//            .previewLayout(.fixed(width: 400, height: 500))
-//    }
-//}
+
+struct FormView_Previews: PreviewProvider {
+    static var previews: some View {
+        FormView(showColor: .constant(true), color: .constant(.yellow))
+            .previewLayout(.fixed(width: 400, height: 500))
+    }
+}

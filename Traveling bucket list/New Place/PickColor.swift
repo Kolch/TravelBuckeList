@@ -10,48 +10,81 @@ import SwiftUI
 
 struct PickColor: View {
     @Binding var shouldChangeColor: Bool
-    
+    @Binding var color: Color
     var body: some View {
-        VStack {
+        GeometryReader { geometry in
+            self.generateContent(in: geometry)
+        }
+        .background(Color.white)
+    }
+    
+    private func generateContent(in g: GeometryProxy) -> some View {
+        var width = CGFloat.zero
+        var height = CGFloat.zero
+        
+        return VStack {
             Spacer()
-            HStack(alignment: .center) {
+            HStack {
                 Spacer()
-                Button(action: {
-                    withAnimation {
-                        self.shouldChangeColor.toggle()
+                ZStack(alignment: .topLeading) {
+                    Spacer()
+                    ForEach(Colors.all, id: \.self) { color in
+                        self.item(for: color)
+                            .padding([.horizontal, .vertical], 4)
+                            .alignmentGuide(.leading, computeValue: { d in
+                                if (abs(width - d.width) > g.size.width)
+                                {
+                                    width = 0
+                                    height -= d.height
+                                }
+                                let result = width
+                                if color == Colors.all.last! {
+                                    width = 0
+                                } else {
+                                    width -= d.width
+                                }
+                                return result
+                            })
+                            .alignmentGuide(.top, computeValue: {d in
+                                let result = height
+                                if color == Colors.all.last! {
+                                    height = 0
+                                }
+                                return result
+                            })
                     }
-                }) {
-                    Circle().frame(width: 100, height: 100, alignment: .center)
-                        .foregroundColor(Color.yellow)
-                }
-                
-                Button(action: {
-                    withAnimation {
-                        self.shouldChangeColor.toggle()
-                    }
-                }){
-                    Circle().frame(width: 100, height: 100, alignment: .center)
-                        .foregroundColor(Color.green)
-                }
-                
-                Button(action: {
-                    withAnimation {
-                        self.shouldChangeColor.toggle()
-                    }
-                }){
-                    Circle().frame(width: 100, height: 100, alignment: .center)
-                        .foregroundColor(Color.blue)
+                    Spacer()
                 }
                 Spacer()
             }
             Spacer()
         }
-        .background(Color.white)
+    }
+
+    func item(for color: Color) -> some View {
+        return Button(action: {
+            withAnimation {
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+                self.shouldChangeColor.toggle()
+                self.color = color
+            }
+        }) {
+            ZStack{
+                Circle().frame(width: 100, height: 100, alignment: .center)
+                    .foregroundColor(color)
+                if color == self.color {
+                    Image("check")
+                        .foregroundColor(.black)
+                }
+            }
+        }
     }
 }
 
-//struct PickColor_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PickColor(shouldChangeColor: )
-//    }
-//}
+struct PickColor_Previews: PreviewProvider {
+    static var previews: some View {
+        PickColor(shouldChangeColor: .constant(false),
+                  color: .constant(Colors.c_1))
+    }
+}

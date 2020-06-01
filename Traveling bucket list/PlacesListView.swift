@@ -19,7 +19,6 @@ struct PlacesListView: View {
     }
     
     var body: some View {
-        
         NavigationView {
             List {
                 ForEach(placeData){ place in

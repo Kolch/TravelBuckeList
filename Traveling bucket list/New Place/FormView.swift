@@ -16,17 +16,15 @@ extension AnyTransition {
 
 struct FormView: View {
     @State private var descripton = ""
-    @State private var showColor = false
+    @Binding var showColor: Bool
     @State var color: Color
-    @State var shouldChangeColor = false
-    //@State var pickColor = false
     
     var transition: AnyTransition {
         return AnyTransition.scale.combined(with: .opacity)
     }
     
     var body: some View {
-        ZStack {
+      //  ZStack {
             VStack(alignment: .leading) {
                 Text("Description")
                     .fontWeight(.medium)
@@ -51,24 +49,12 @@ struct FormView: View {
                 Divider()
                 Spacer()
             }.padding()
-            if showColor {
-                PickColor(shouldChangeColor: $showColor)
-                    .gesture(
-                        TapGesture().onEnded{ _ in
-                            withAnimation {
-                                self.showColor.toggle()
-                            }
-                        }
-                )
-                    .transition(transition)
-            }
-        }
     }
 }
-
-struct FormView_Previews: PreviewProvider {
-    static var previews: some View {
-        FormView(color: Color.yellow)
-            .previewLayout(.fixed(width: 400, height: 500))
-    }
-}
+//
+//struct FormView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FormView(showColor: <#Binding<Bool>#>, color: Color.yellow)
+//            .previewLayout(.fixed(width: 400, height: 500))
+//    }
+//}

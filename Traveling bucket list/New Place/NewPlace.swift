@@ -10,11 +10,30 @@ import SwiftUI
 
 struct NewPlace: View {
     let headerView = HeaderView()
+    @State private var showColors: Bool = false
+    
+    var transition: AnyTransition {
+        return AnyTransition.scale.combined(with: .opacity)
+    }
+    
     var body: some View {
+        ZStack {
             VStack {
                 headerView
-                FormView(color: headerView.color)
+                FormView(showColor: $showColors, color: headerView.color)
             }
+            if showColors {
+                PickColor(shouldChangeColor: $showColors)
+                    .gesture(
+                        TapGesture().onEnded{ _ in
+                            withAnimation {
+                                self.showColors.toggle()
+                            }
+                        }
+                )
+                    .transition(transition)
+            }
+        }
     }
 }
 

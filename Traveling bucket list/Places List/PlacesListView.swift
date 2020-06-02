@@ -27,7 +27,11 @@ struct PlacesListView: View {
                     ForEach(places){ place in
                         PlaceRow(place: place)
                     }
-                    .onDelete(perform: removePlace)
+                    .onDelete { index in
+                        withAnimation(.easeInOut){
+                            self.removePlace(at: index)
+                        }
+                    }
                 }
                 if places.isEmpty {
                     Text("Empty")
@@ -39,15 +43,15 @@ struct PlacesListView: View {
                     self.showModal.toggle()
                     let generator = UIImpactFeedbackGenerator(style: .heavy)
                     generator.impactOccurred()
-                    }) {
-                        Image("plus")
+                }) {
+                    Image("plus")
+                }
+                .id(self.navigationButtonID)
+                .sheet(isPresented: self.$showModal){
+                    NewPlacePresenter().environment(\.managedObjectContext, self.moc).onDisappear {
+                        self.navigationButtonID = UUID()
                     }
-                    .id(self.navigationButtonID)
-                    .sheet(isPresented: self.$showModal){
-                        NewPlacePresenter().environment(\.managedObjectContext, self.moc).onDisappear {
-                            self.navigationButtonID = UUID()
-                        }
-                    }
+                }
             )
                 .foregroundColor(.black)
         }

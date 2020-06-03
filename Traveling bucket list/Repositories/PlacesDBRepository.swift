@@ -13,6 +13,7 @@ import UIKit
 protocol PlacesDBRepository {
     func addPlace(id: UUID, title: String, info: String, color: UIColor)
     func deletePlace(_ place: Place)
+    func loadPlaces() -> [Place]
 }
 
 struct RealPlacesDBRepository: PlacesDBRepository {
@@ -32,9 +33,22 @@ struct RealPlacesDBRepository: PlacesDBRepository {
         moc.delete(place)
         try? moc.save()
     }
+    
+    func loadPlaces() -> [Place] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Place")
+        do {
+            let results = try moc.fetch(fetchRequest)
+            let  places = results as! [Place]
+            return places
+        } catch {
+            NSLog("Error on fetching core data")
+            return []
+        }
+    }
 }
 
 struct StubPlacesDBRepository: PlacesDBRepository {
     func addPlace(id: UUID, title: String, info: String, color: UIColor) {}
     func deletePlace(_ place: Place){}
+    func loadPlaces() -> [Place] { return [] }
 }

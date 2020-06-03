@@ -8,12 +8,14 @@
 
 import SwiftUI
 import UIKit
+import Combine
 
 struct PlacesList: View {
-    //@FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
+    @FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
     @Environment(\.injected) private var injected: DIContainer
     @Environment(\.managedObjectContext) var moc
     
+    @State private var shouldReload: Bool = false
     @State private var showModal: Bool = false
     @State private var navigationButtonID = UUID()
     @State private var menuButtonID = UUID()
@@ -35,7 +37,7 @@ struct PlacesList: View {
                         }
                     }
                 }
-                if injected.appState.userData.places.isEmpty {
+                if places.isEmpty {
                     Text("Empty")
                 }
             }
@@ -56,6 +58,9 @@ struct PlacesList: View {
             )
                 .foregroundColor(.black)
         }
+        .onAppear {
+            //self.injected.interactors.placesInteractor.loadPlaces()
+        }
     }
 }
 
@@ -64,6 +69,7 @@ private extension PlacesList {
     func deletePlace(at index: IndexSet){
         injected.interactors
         .placesInteractor.removePlace(at: index)
+        self.menuButtonID = UUID()
     }
     
     func generateFeedBack(style: UIImpactFeedbackGenerator.FeedbackStyle){

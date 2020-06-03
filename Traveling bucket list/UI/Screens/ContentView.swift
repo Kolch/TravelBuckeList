@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     private let container: DIContainer
+    
     init(container: DIContainer) {
         self.container = container
     }

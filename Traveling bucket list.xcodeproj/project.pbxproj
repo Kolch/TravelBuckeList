@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A8465DDA2485139100E1EB50 /* MenuContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8465DD92485139100E1EB50 /* MenuContent.swift */; };
-		A8465DDD248513B200E1EB50 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8465DDC248513B200E1EB50 /* NavigationDrawer.swift */; };
 		A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABB24841A8B000BD930 /* AppDelegate.swift */; };
 		A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABD24841A8B000BD930 /* SceneDelegate.swift */; };
-		A866FAC024841A8B000BD930 /* PlacesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABF24841A8B000BD930 /* PlacesListView.swift */; };
+		A866FAC024841A8B000BD930 /* PlacesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABF24841A8B000BD930 /* PlacesList.swift */; };
 		A866FAC224841A8C000BD930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC124841A8C000BD930 /* Assets.xcassets */; };
 		A866FAC524841A8C000BD930 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC424841A8C000BD930 /* Preview Assets.xcassets */; };
 		A866FAC824841A8C000BD930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC624841A8C000BD930 /* LaunchScreen.storyboard */; };
@@ -22,13 +20,18 @@
 		A8B1C62D248689A5005693B6 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */; };
 		A8B1C63124868CF3005693B6 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */; };
 		A8B1C63224868CF8005693B6 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
+		A8B1C637248713E8005693B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C636248713E8005693B6 /* ContentView.swift */; };
+		A8B1C63A2487145B005693B6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C6392487145B005693B6 /* AppState.swift */; };
+		A8B1C63C24871584005693B6 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C63B24871584005693B6 /* DependencyInjector.swift */; };
+		A8B1C63E24871633005693B6 /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C63D24871633005693B6 /* InteractorsContainer.swift */; };
+		A8B1C6412487171F005693B6 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C6402487171F005693B6 /* PlacesInteractor.swift */; };
+		A8B1C6432487206F005693B6 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C6422487206F005693B6 /* AppEnvironment.swift */; };
 		A8CDF5682486710700A62D79 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDF5672486710700A62D79 /* ShareViewController.swift */; };
 		A8CDF56B2486710700A62D79 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CDF5692486710700A62D79 /* MainInterface.storyboard */; };
 		A8CDF56F2486710700A62D79 /* BucketListShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A8CDF5652486710700A62D79 /* BucketListShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A8CDF5792486736800A62D79 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDF5782486736800A62D79 /* ShareView.swift */; };
 		A8CDF57A24867A6D00A62D79 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B253248444E700F8E64C /* Colors.swift */; };
-		A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */; };
-		A8F1B252248432B000F8E64C /* NewPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */; };
+		A8F1B252248432B000F8E64C /* NewPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B251248432B000F8E64C /* NewPlace.swift */; };
 		A8F1B254248444E700F8E64C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B253248444E700F8E64C /* Colors.swift */; };
 		A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25624844ED200F8E64C /* NewPlaceView.swift */; };
 		A8F1B25B24845AF200F8E64C /* PickColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25A24845AF200F8E64C /* PickColor.swift */; };
@@ -62,12 +65,10 @@
 /* Begin PBXFileReference section */
 		7B23371B6CA663779776C5BC /* Pods-Traveling bucket list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.debug.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.debug.xcconfig"; sourceTree = "<group>"; };
 		7DEF84731C62032592297E88 /* Pods-Traveling bucket list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.release.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.release.xcconfig"; sourceTree = "<group>"; };
-		A8465DD92485139100E1EB50 /* MenuContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContent.swift; sourceTree = "<group>"; };
-		A8465DDC248513B200E1EB50 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 		A866FAB824841A8B000BD930 /* Traveling bucket list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Traveling bucket list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A866FABB24841A8B000BD930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A866FABD24841A8B000BD930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A866FABF24841A8B000BD930 /* PlacesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListView.swift; sourceTree = "<group>"; };
+		A866FABF24841A8B000BD930 /* PlacesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesList.swift; sourceTree = "<group>"; };
 		A866FAC124841A8C000BD930 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A866FAC424841A8C000BD930 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A866FAC724841A8C000BD930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +79,12 @@
 		A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiled.swift; sourceTree = "<group>"; };
 		A86FE8D82485B8230076ABB0 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPersistentContainer.swift; sourceTree = "<group>"; };
+		A8B1C636248713E8005693B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A8B1C6392487145B005693B6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A8B1C63B24871584005693B6 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		A8B1C63D24871633005693B6 /* InteractorsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
+		A8B1C6402487171F005693B6 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
+		A8B1C6422487206F005693B6 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A8CDF55D2486687100A62D79 /* Traveling bucket list.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Traveling bucket list.entitlements"; sourceTree = "<group>"; };
 		A8CDF5652486710700A62D79 /* BucketListShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BucketListShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CDF5672486710700A62D79 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -85,8 +92,7 @@
 		A8CDF56C2486710700A62D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8CDF5732486711000A62D79 /* BucketListShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BucketListShare.entitlements; sourceTree = "<group>"; };
 		A8CDF5782486736800A62D79 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
-		A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
-		A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlacePresenter.swift; sourceTree = "<group>"; };
+		A8F1B251248432B000F8E64C /* NewPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlace.swift; sourceTree = "<group>"; };
 		A8F1B253248444E700F8E64C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A8F1B25624844ED200F8E64C /* NewPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceView.swift; sourceTree = "<group>"; };
 		A8F1B25A24845AF200F8E64C /* PickColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickColor.swift; sourceTree = "<group>"; };
@@ -130,15 +136,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A8465DDB2485139600E1EB50 /* Side Menu */ = {
-			isa = PBXGroup;
-			children = (
-				A8465DD92485139100E1EB50 /* MenuContent.swift */,
-				A8465DDC248513B200E1EB50 /* NavigationDrawer.swift */,
-			);
-			path = "Side Menu";
-			sourceTree = "<group>";
-		};
 		A866FAAF24841A8B000BD930 = {
 			isa = PBXGroup;
 			children = (
@@ -163,71 +160,93 @@
 			isa = PBXGroup;
 			children = (
 				A8CDF55D2486687100A62D79 /* Traveling bucket list.entitlements */,
-				A866FACF24841ABC000BD930 /* Application */,
-				A866FAD524841DBA000BD930 /* Model */,
-				A8465DDB2485139600E1EB50 /* Side Menu */,
-				A86FE8D0248569AA0076ABB0 /* Place detail */,
-				A86FE8CF248569A10076ABB0 /* Places List */,
-				A8F1B25524844E6B00F8E64C /* New Place */,
-				A8F1B24E2484205400F8E64C /* CoreData */,
-				A866FAD024841AD0000BD930 /* Supporting Files */,
-				A866FAC324841A8C000BD930 /* Preview Content */,
+				A866FACF24841ABC000BD930 /* System */,
+				A866FAD524841DBA000BD930 /* Models */,
+				A8B1C6382487142D005693B6 /* Injected */,
+				A8B1C63F248716FB005693B6 /* Interactors */,
+				A8F1B24E2484205400F8E64C /* Persistence */,
+				A8B1C633248711C4005693B6 /* UI */,
+				A866FAD024841AD0000BD930 /* Resources */,
 			);
 			path = "Traveling bucket list";
 			sourceTree = "<group>";
 		};
-		A866FAC324841A8C000BD930 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				A866FAC424841A8C000BD930 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		A866FACF24841ABC000BD930 /* Application */ = {
+		A866FACF24841ABC000BD930 /* System */ = {
 			isa = PBXGroup;
 			children = (
 				A866FABB24841A8B000BD930 /* AppDelegate.swift */,
 				A866FABD24841A8B000BD930 /* SceneDelegate.swift */,
+				A8B1C6422487206F005693B6 /* AppEnvironment.swift */,
 			);
-			path = Application;
+			path = System;
 			sourceTree = "<group>";
 		};
-		A866FAD024841AD0000BD930 /* Supporting Files */ = {
+		A866FAD024841AD0000BD930 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				A866FAC124841A8C000BD930 /* Assets.xcassets */,
 				A866FAC624841A8C000BD930 /* LaunchScreen.storyboard */,
 				A866FAC924841A8C000BD930 /* Info.plist */,
 				A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */,
+				A866FAC424841A8C000BD930 /* Preview Assets.xcassets */,
 			);
-			path = "Supporting Files";
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		A866FAD524841DBA000BD930 /* Model */ = {
+		A866FAD524841DBA000BD930 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A866FAD324841C62000BD930 /* Place.swift */,
 				A8F1B253248444E700F8E64C /* Colors.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		A86FE8CF248569A10076ABB0 /* Places List */ = {
+		A8B1C633248711C4005693B6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A866FABF24841A8B000BD930 /* PlacesListView.swift */,
+				A8B1C63424871310005693B6 /* Screens */,
+				A8B1C63524871317005693B6 /* Components */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A8B1C63424871310005693B6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A8B1C636248713E8005693B6 /* ContentView.swift */,
+				A866FABF24841A8B000BD930 /* PlacesList.swift */,
+				A8F1B251248432B000F8E64C /* NewPlace.swift */,
+				A8F1B25624844ED200F8E64C /* NewPlaceView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A8B1C63524871317005693B6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
 				A866FAD124841C3E000BD930 /* PlaceRow.swift */,
+				A8F1B25A24845AF200F8E64C /* PickColor.swift */,
 			);
-			path = "Places List";
+			path = Components;
 			sourceTree = "<group>";
 		};
-		A86FE8D0248569AA0076ABB0 /* Place detail */ = {
+		A8B1C6382487142D005693B6 /* Injected */ = {
 			isa = PBXGroup;
 			children = (
-				A8F1B24F24842C4000F8E64C /* PlaceDetail.swift */,
+				A8B1C6392487145B005693B6 /* AppState.swift */,
+				A8B1C63B24871584005693B6 /* DependencyInjector.swift */,
+				A8B1C63D24871633005693B6 /* InteractorsContainer.swift */,
 			);
-			path = "Place detail";
+			path = Injected;
+			sourceTree = "<group>";
+		};
+		A8B1C63F248716FB005693B6 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				A8B1C6402487171F005693B6 /* PlacesInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 		A8CDF5662486710700A62D79 /* BucketListShare */ = {
@@ -242,23 +261,13 @@
 			path = BucketListShare;
 			sourceTree = "<group>";
 		};
-		A8F1B24E2484205400F8E64C /* CoreData */ = {
+		A8F1B24E2484205400F8E64C /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
 				A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */,
 				A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */,
 			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		A8F1B25524844E6B00F8E64C /* New Place */ = {
-			isa = PBXGroup;
-			children = (
-				A8F1B251248432B000F8E64C /* NewPlacePresenter.swift */,
-				A8F1B25624844ED200F8E64C /* NewPlaceView.swift */,
-				A8F1B25A24845AF200F8E64C /* PickColor.swift */,
-			);
-			path = "New Place";
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,20 +417,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8F1B25B24845AF200F8E64C /* PickColor.swift in Sources */,
-				A8F1B252248432B000F8E64C /* NewPlacePresenter.swift in Sources */,
+				A8B1C63C24871584005693B6 /* DependencyInjector.swift in Sources */,
+				A8B1C6412487171F005693B6 /* PlacesInteractor.swift in Sources */,
+				A8F1B252248432B000F8E64C /* NewPlace.swift in Sources */,
 				A8F1B254248444E700F8E64C /* Colors.swift in Sources */,
-				A8465DDD248513B200E1EB50 /* NavigationDrawer.swift in Sources */,
 				A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */,
 				A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */,
+				A8B1C63E24871633005693B6 /* InteractorsContainer.swift in Sources */,
 				A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */,
 				A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */,
 				A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */,
-				A8F1B25024842C4000F8E64C /* PlaceDetail.swift in Sources */,
 				A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */,
+				A8B1C63A2487145B005693B6 /* AppState.swift in Sources */,
 				A8B1C62D248689A5005693B6 /* SharedPersistentContainer.swift in Sources */,
-				A866FAC024841A8B000BD930 /* PlacesListView.swift in Sources */,
+				A8B1C637248713E8005693B6 /* ContentView.swift in Sources */,
+				A866FAC024841A8B000BD930 /* PlacesList.swift in Sources */,
 				A866FAD424841C62000BD930 /* Place.swift in Sources */,
-				A8465DDA2485139100E1EB50 /* MenuContent.swift in Sources */,
+				A8B1C6432487206F005693B6 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,10 +601,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Traveling bucket list/Traveling bucket list.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Traveling bucket list/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Traveling bucket list/Resources/\"";
 				DEVELOPMENT_TEAM = Z6F2H3U2N6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Traveling bucket list/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Traveling bucket list/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -613,10 +625,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Traveling bucket list/Traveling bucket list.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Traveling bucket list/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Traveling bucket list/Resources/\"";
 				DEVELOPMENT_TEAM = Z6F2H3U2N6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Traveling bucket list/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Traveling bucket list/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

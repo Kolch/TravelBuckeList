@@ -9,8 +9,8 @@
 import SwiftUI
 import UIKit
 
-struct PlacesListView: View {
-    @Environment(\.managedObjectContext) var moc
+struct PlacesList: View {
+    @Environment(\.injected) private var injected: DIContainer
     @FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
     @State private var showModal: Bool = false
     @State private var navigationButtonID = UUID()
@@ -28,8 +28,8 @@ struct PlacesListView: View {
                         PlaceRow(place: place)
                     }
                     .onDelete { index in
-                        withAnimation(.easeInOut){
-                            self.removePlace(at: index)
+                        withAnimation(.easeInOut) {
+                            self.deletePlace(at: index)
                         }
                     }
                 }
@@ -41,14 +41,13 @@ struct PlacesListView: View {
             .navigationBarItems(
                 trailing: Button(action: {
                     self.showModal.toggle()
-                    let generator = UIImpactFeedbackGenerator(style: .heavy)
-                    generator.impactOccurred()
+                    self.generateFeedBack(style: .heavy)
                 }) {
                     Image("plus")
                 }
                 .id(self.navigationButtonID)
                 .sheet(isPresented: self.$showModal){
-                    NewPlacePresenter().environment(\.managedObjectContext, self.moc).onDisappear {
+                    NewPlace().onDisappear {
                         self.navigationButtonID = UUID()
                     }
                 }
@@ -56,13 +55,18 @@ struct PlacesListView: View {
                 .foregroundColor(.black)
         }
     }
+}
+
+
+private extension PlacesList {
+    func deletePlace(at index: IndexSet){
+        injected.interactors
+        .placesInteractor.removePlace(at: index)
+    }
     
-    func removePlace(at offsets: IndexSet) {
-        for index in offsets {
-            let place = places[index]
-            moc.delete(place)
-        }
-        try? moc.save()
+    func generateFeedBack(style: UIImpactFeedbackGenerator.FeedbackStyle){
+        injected.interactors.placesInteractor
+            .generatFeedbackWith(style: style)
     }
 }
 
@@ -72,6 +76,6 @@ struct PlacesListView_Previews: PreviewProvider {
         let place = Place.init(context: context)
         place.title = "Title"
         place.color = Colors.random.uiColor()
-        return PlacesListView().environment(\.managedObjectContext, context)
+        return PlacesList().environment(\.managedObjectContext, context)
     }
 }

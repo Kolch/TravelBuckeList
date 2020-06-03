@@ -1,5 +1,5 @@
 //
-//  HeaderView.swift
+//  NewPlace.swift
 //  Traveling bucket list
 //
 //  Created by Kolchedantsev Alexey on 31.05.2020.
@@ -7,19 +7,50 @@
 //
 
 import SwiftUI
-import Introspect
+import CoreData
 
-struct NewPlaceView: View {
-    @Environment(\.managedObjectContext) var moc
+struct NewPlace: View {
+    
+    @Environment(\.injected) private var injected: DIContainer
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var isPickingColor: Bool
-    @Binding var color: Color
-    
+    @State private var isPickingColor: Bool = false
+    @State var color: Color = Colors.random
+    @State var didChangeColor: Bool = false
     @State private var title = ""
     @State private var descripton = ""
     @State private var viewIsReady = false
+    
+    var transition: AnyTransition {
+        return AnyTransition.scale.combined(with: .opacity)
+    }
+    
     var body: some View {
+        ZStack {
+            VStack {
+                newPlaceViewModel
+            }
+            if isPickingColor {
+                PickColor(shouldChangeColor: $isPickingColor, color: $color)
+                    .gesture(
+                        TapGesture().onEnded{ _ in
+                            withAnimation {
+                                self.isPickingColor.toggle()
+                            }
+                        }
+                )
+                    .transition(transition)
+            }
+        }
+    }
+    
+    var moc: NSManagedObjectContext {
+        return injected.appState.userData.context
+    }
+}
+
+private extension NewPlace {
+    var newPlaceViewModel: some View {
         VStack {
             VStack(alignment: .leading, spacing: 40.0) {
                 HStack {
@@ -55,7 +86,7 @@ struct NewPlaceView: View {
                         .font(.headline)
                 }
             }
-            .padding(.all).background(headColor)
+            .padding(.all).background(color)
             
             VStack(alignment: .leading) {
                 Text("Description")
@@ -88,24 +119,28 @@ struct NewPlaceView: View {
     var saveButton: Color {
         return !title.isEmpty ? .black : .gray
     }
-    
-    var headColor: Color {
-        return color
-    }
-    
-    func addPlace() {
-        let place = Place(context: self.moc)
-        place.id = UUID()
-        place.title = self.title
-        place.info = self.descripton
-        place.color = self.color.uiColor()
-        try? moc.save()
+}
+
+// MARK: - Functions
+extension NewPlace {
+    func addPlace(){
+        self.injected.interactors
+            .placesInteractor.addPlace(
+                id: UUID(),
+                title: self.title,
+                info: self.descripton,
+                color: self.color.uiColor())
     }
 }
 
-struct NewPlaceView_Previews: PreviewProvider {
+struct NewPlace_Previews: PreviewProvider {
     static var previews: some View {
-        NewPlaceView(isPickingColor: .constant(false), color: .constant(.blue))
-            .previewLayout(.fixed(width: 400, height: 500))
+        NewPlace()
+    }
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

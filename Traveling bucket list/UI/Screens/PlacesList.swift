@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 struct PlacesList: View {
-    @FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
+    //@FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
     @Environment(\.injected) private var injected: DIContainer
     @Environment(\.managedObjectContext) var moc
     
@@ -26,7 +26,7 @@ struct PlacesList: View {
         NavigationView {
             ZStack {
                 List {
-                    ForEach(places){ place in
+                    ForEach(injected.appState.userData.places){ place in
                         PlaceRow(place: place)
                     }
                     .onDelete { index in
@@ -35,7 +35,7 @@ struct PlacesList: View {
                         }
                     }
                 }
-                if places.isEmpty {
+                if injected.appState.userData.places.isEmpty {
                     Text("Empty")
                 }
             }

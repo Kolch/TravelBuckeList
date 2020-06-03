@@ -12,9 +12,8 @@ import SwiftUI
 // MARK: - DIContainer
 
 struct DIContainer: EnvironmentKey {
-    
 
-    let appState: AppState
+    var appState: AppState
     let interactors: Interactors
 
     init(appState: AppState, interactors: Interactors) {

@@ -10,16 +10,18 @@ import Foundation
 import SwiftUI
 import CoreData
 
-struct AppState {
+class AppState: ObservableObject {
     var userData = UserData()
 }
 
 extension AppState {
-    struct UserData {
+    class UserData: ObservableObject {
         var moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //@FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
+        
         var places:[Place] {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Place")
-              do {
+            do {
                 let results = try moc.fetch(fetchRequest)
                 let  places = results as! [Place]
                 return places

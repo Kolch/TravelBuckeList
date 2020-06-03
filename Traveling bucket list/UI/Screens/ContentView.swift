@@ -11,10 +11,10 @@ import SwiftUI
 struct ContentView: View {
     
     private let container: DIContainer
-    
     init(container: DIContainer) {
         self.container = container
     }
+    
     var body: some View {
         PlacesList().inject(container).environment(\.managedObjectContext, container.appState.userData.moc)
     }

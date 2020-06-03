@@ -17,6 +17,7 @@
 		A866FAD424841C62000BD930 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD324841C62000BD930 /* Place.swift */; };
 		A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
 		A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */; };
+		A8A9A3682487B07200D0E8C3 /* PlacesDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9A3672487B07200D0E8C3 /* PlacesDBRepository.swift */; };
 		A8B1C62D248689A5005693B6 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */; };
 		A8B1C63124868CF3005693B6 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */; };
 		A8B1C63224868CF8005693B6 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
@@ -78,6 +79,7 @@
 		A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelBucketList.xcdatamodel; sourceTree = "<group>"; };
 		A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiled.swift; sourceTree = "<group>"; };
 		A86FE8D82485B8230076ABB0 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A8A9A3672487B07200D0E8C3 /* PlacesDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDBRepository.swift; sourceTree = "<group>"; };
 		A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPersistentContainer.swift; sourceTree = "<group>"; };
 		A8B1C636248713E8005693B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A8B1C6392487145B005693B6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				A8B1C6382487142D005693B6 /* Injected */,
 				A8B1C63F248716FB005693B6 /* Interactors */,
 				A8F1B24E2484205400F8E64C /* Persistence */,
+				A8A9A3662487B04A00D0E8C3 /* Repositories */,
 				A8B1C633248711C4005693B6 /* UI */,
 				A866FAD024841AD0000BD930 /* Resources */,
 			);
@@ -200,6 +203,14 @@
 				A8F1B253248444E700F8E64C /* Colors.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A8A9A3662487B04A00D0E8C3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A8A9A3672487B07200D0E8C3 /* PlacesDBRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		A8B1C633248711C4005693B6 /* UI */ = {
@@ -433,6 +444,7 @@
 				A8B1C637248713E8005693B6 /* ContentView.swift in Sources */,
 				A866FAC024841A8B000BD930 /* PlacesList.swift in Sources */,
 				A866FAD424841C62000BD930 /* Place.swift in Sources */,
+				A8A9A3682487B07200D0E8C3 /* PlacesDBRepository.swift in Sources */,
 				A8B1C6432487206F005693B6 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

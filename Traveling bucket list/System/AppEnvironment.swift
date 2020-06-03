@@ -17,13 +17,26 @@ struct AppEnvironment {
 extension AppEnvironment {
     static func bootstrap() -> AppEnvironment {
         let appState = AppState()
-        let interactors = configuredInteractors(appState: appState)
+        let dbRepositories = configuredDBRepositories(appState: appState)
+        let interactors = configuredInteractors(appState: appState, dbRepositories: dbRepositories)
         let diContainer = DIContainer(appState: appState, interactors: interactors)
         return AppEnvironment(container: diContainer)
     }
     
-    private static func configuredInteractors(appState: AppState) -> DIContainer.Interactors {
-        let placesInteractor = RealPlacesInteractor(appState: appState)
+    private static func configuredDBRepositories(appState: AppState) -> DIContainer.DBRepositories {
+        let placesDBRepository = RealPlacesDBRepository(moc: appState.userData.moc)
+        return .init(placesRepository: placesDBRepository)
+    }
+    
+    private static func configuredInteractors(appState: AppState,
+                                              dbRepositories: DIContainer.DBRepositories) -> DIContainer.Interactors {
+        let placesInteractor = RealPlacesInteractor(appState: appState, dbRepository: dbRepositories.placesRepository)
         return .init(placesInteractor: placesInteractor)
+    }
+}
+
+extension DIContainer {
+    struct DBRepositories {
+        let placesRepository: PlacesDBRepository
     }
 }

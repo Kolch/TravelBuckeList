@@ -10,8 +10,10 @@ import SwiftUI
 import UIKit
 
 struct PlacesList: View {
-    @Environment(\.injected) private var injected: DIContainer
     @FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
+    @Environment(\.injected) private var injected: DIContainer
+    @Environment(\.managedObjectContext) var moc
+    
     @State private var showModal: Bool = false
     @State private var navigationButtonID = UUID()
     @State private var menuButtonID = UUID()
@@ -47,7 +49,7 @@ struct PlacesList: View {
                 }
                 .id(self.navigationButtonID)
                 .sheet(isPresented: self.$showModal){
-                    NewPlace().onDisappear {
+                    NewPlace().environment(\.injected, self.injected).onDisappear {
                         self.navigationButtonID = UUID()
                     }
                 }

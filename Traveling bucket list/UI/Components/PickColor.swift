@@ -11,6 +11,7 @@ import SwiftUI
 struct PickColor: View {
     @Binding var shouldChangeColor: Bool
     @Binding var color: Color
+    
     var body: some View {
         GeometryReader { geometry in
             self.generateContent(in: geometry)
@@ -62,7 +63,7 @@ struct PickColor: View {
     }
 
     func item(for color: Color) -> some View {
-        return Button(action: {
+         Button(action: {
             withAnimation {
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.success)

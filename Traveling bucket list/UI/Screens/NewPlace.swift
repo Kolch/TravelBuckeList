@@ -43,10 +43,6 @@ struct NewPlace: View {
             }
         }
     }
-    
-    var moc: NSManagedObjectContext {
-        return injected.appState.userData.context
-    }
 }
 
 private extension NewPlace {
@@ -124,12 +120,13 @@ private extension NewPlace {
 // MARK: - Functions
 extension NewPlace {
     func addPlace(){
-        self.injected.interactors
-            .placesInteractor.addPlace(
-                id: UUID(),
-                title: self.title,
-                info: self.descripton,
-                color: self.color.uiColor())
+        let id = UUID()
+        injected.interactors.placesInteractor.addNewPlace(
+            id: id,
+            title: title,
+            info: descripton,
+            color: color.uiColor()
+        )
     }
 }
 

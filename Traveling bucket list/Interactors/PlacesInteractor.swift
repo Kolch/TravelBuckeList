@@ -13,22 +13,23 @@ import SwiftUI
 protocol  PlacesInteractor {
     func removePlace(at offsets: IndexSet)
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle)
-    func addPlace(id: UUID, title: String, info: String, color: UIColor)
+    func addNewPlace(id: UUID, title: String, info: String, color: UIColor)
 }
 
 struct RealPlacesInteractor: PlacesInteractor {
-    var moc: NSManagedObjectContext
-    var appState: AppState
     
-    init(appState: AppState) {
+    var appState: AppState
+    let dbRepository: PlacesDBRepository
+    
+    init(appState: AppState, dbRepository: PlacesDBRepository) {
         self.appState = appState
-        moc = appState.userData.context
+        self.dbRepository = dbRepository
     }
     
     func removePlace(at offsets: IndexSet) {
         for index in offsets {
             let place = appState.userData.places[index]
-            moc.delete(place)
+            dbRepository.deletePlace(place)
         }
     }
     
@@ -37,19 +38,13 @@ struct RealPlacesInteractor: PlacesInteractor {
         generator.impactOccurred()
     }
     
-    func addPlace(id: UUID, title: String, info: String, color: UIColor){
-        print("ADD PLACE")
-        let place = Place(context: self.moc)
-        place.id    = UUID()
-        place.title = title
-        place.info  = info
-        place.color =  color
-        try? moc.save()
+    func addNewPlace(id: UUID, title: String, info: String, color: UIColor){
+        dbRepository.addPlace(id: id, title: title, info: info, color: color)
     }
 }
 
 struct StubPlacesInteractor: PlacesInteractor {
     func removePlace(at offsets: IndexSet){}
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle){}
-    func addPlace(id: UUID, title: String, info: String, color: UIColor){}
+    func addNewPlace(id: UUID, title: String, info: String, color: UIColor){}
 }

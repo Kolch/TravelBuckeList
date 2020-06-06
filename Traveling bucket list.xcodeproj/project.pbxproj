@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8176D41248C3E9B00E3F42C /* ListKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8176D40248C3E9B00E3F42C /* ListKey.swift */; };
 		A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABB24841A8B000BD930 /* AppDelegate.swift */; };
 		A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABD24841A8B000BD930 /* SceneDelegate.swift */; };
-		A866FAC024841A8B000BD930 /* PlacesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABF24841A8B000BD930 /* PlacesList.swift */; };
+		A866FAC024841A8B000BD930 /* AllPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABF24841A8B000BD930 /* AllPlaces.swift */; };
 		A866FAC224841A8C000BD930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC124841A8C000BD930 /* Assets.xcassets */; };
 		A866FAC524841A8C000BD930 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC424841A8C000BD930 /* Preview Assets.xcassets */; };
 		A866FAC824841A8C000BD930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC624841A8C000BD930 /* LaunchScreen.storyboard */; };
@@ -62,10 +63,11 @@
 /* Begin PBXFileReference section */
 		7B23371B6CA663779776C5BC /* Pods-Traveling bucket list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.debug.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.debug.xcconfig"; sourceTree = "<group>"; };
 		7DEF84731C62032592297E88 /* Pods-Traveling bucket list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.release.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.release.xcconfig"; sourceTree = "<group>"; };
+		A8176D40248C3E9B00E3F42C /* ListKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKey.swift; sourceTree = "<group>"; };
 		A866FAB824841A8B000BD930 /* Traveling bucket list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Traveling bucket list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A866FABB24841A8B000BD930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A866FABD24841A8B000BD930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A866FABF24841A8B000BD930 /* PlacesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesList.swift; sourceTree = "<group>"; };
+		A866FABF24841A8B000BD930 /* AllPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPlaces.swift; sourceTree = "<group>"; };
 		A866FAC124841A8C000BD930 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A866FAC424841A8C000BD930 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A866FAC724841A8C000BD930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				A866FAD324841C62000BD930 /* Place.swift */,
 				A8F1B253248444E700F8E64C /* Colors.swift */,
+				A8176D40248C3E9B00E3F42C /* ListKey.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				A8B1C636248713E8005693B6 /* ContentView.swift */,
-				A866FABF24841A8B000BD930 /* PlacesList.swift */,
+				A866FABF24841A8B000BD930 /* AllPlaces.swift */,
 				A8F1B251248432B000F8E64C /* NewPlace.swift */,
 				A8F1B25624844ED200F8E64C /* NewPlaceView.swift */,
 			);
@@ -422,9 +425,10 @@
 				A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */,
 				A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */,
 				A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */,
+				A8176D41248C3E9B00E3F42C /* ListKey.swift in Sources */,
 				A8B1C63A2487145B005693B6 /* AppState.swift in Sources */,
 				A8B1C637248713E8005693B6 /* ContentView.swift in Sources */,
-				A866FAC024841A8B000BD930 /* PlacesList.swift in Sources */,
+				A866FAC024841A8B000BD930 /* AllPlaces.swift in Sources */,
 				A866FAD424841C62000BD930 /* Place.swift in Sources */,
 				A8A9A3682487B07200D0E8C3 /* PlacesDBRepository.swift in Sources */,
 				A8B1C6432487206F005693B6 /* AppEnvironment.swift in Sources */,

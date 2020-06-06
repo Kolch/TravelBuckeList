@@ -20,32 +20,28 @@ class AppState: Equatable {
 }
 
 extension AppState {
-    class UserData: Equatable, ObservableObject {
+    struct UserData: Equatable {
         
-        @Published var places:[Place]
+        var places: PlacesList
         var realm: Realm!
         
-        private var placesToken: NotificationToken?
         init(){
             realm = try! Realm()
-            places = Array(realm.objects(Place.self)) // Convert Realm results object to Array
-            activateChannelsToken()
-        }
-        
-        private func activateChannelsToken() {
-            let realm = try! Realm()
-            let places = realm.objects(Place.self)
-            placesToken = places.observe { _ in
-                self.places = Array(places)
+            if let places = realm.objects(PlacesList.self).first {
+                self.places = places
+            } else {
+                // create empty list
+                let list = PlacesList()
+                realm.beginWrite()
+                realm.add(list)
+                try! realm.commitWrite()
+                self.places = list
             }
+            print(places)
         }
         
         static func == (lhs: AppState.UserData, rhs: AppState.UserData) -> Bool {
             return lhs.places == rhs.places
-        }
-        
-        deinit {
-            placesToken?.invalidate()
         }
     }
 }

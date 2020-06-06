@@ -13,8 +13,8 @@ import RealmSwift
 
 protocol PlacesDBRepository {
     func addPlace(_ place: Place)
-    func deletePlace(_ place: Place)
-    func loadPlaces() -> [Place]
+    func deletePlace(with id: String)
+    func loadPlaces() -> Results<Place>
 }
 
 struct RealPlacesDBRepository: PlacesDBRepository {
@@ -32,23 +32,26 @@ struct RealPlacesDBRepository: PlacesDBRepository {
         }
     }
     
-    func deletePlace(_ place: Place){
-        DispatchQueue.main.async {
-            try! self.realm.write {
-                self.realm.delete(place)
+    func deletePlace(with id: String){
+        if let objectToDelete = realm.object(ofType: Place.self, forPrimaryKey: id), !objectToDelete.isInvalidated {
+            try? realm.write {
+                objectToDelete.title = "__"
             }
         }
     }
     
-    func loadPlaces() -> [Place] {
+    func loadPlaces() -> Results<Place> {
         print("get places")
         let places = realm.objects(Place.self)
-        return Array(places)
+        return places
     }
 }
 
 struct StubPlacesDBRepository: PlacesDBRepository {
     func addPlace(_ place: Place) {}
-    func deletePlace(_ place: Place){}
-    func loadPlaces() -> [Place] { return [] }
+    func deletePlace(with id: String){}
+    func loadPlaces() -> Results<Place> {
+        let realm = try! Realm()
+        return realm.objects(Place.self)
+    }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    
     private let container: DIContainer
     
     init(container: DIContainer) {
@@ -17,7 +18,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        PlacesList().inject(container)
+        AllPlaces().environment(\.injected, container)
     }
 }
 

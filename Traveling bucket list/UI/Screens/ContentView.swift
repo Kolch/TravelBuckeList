@@ -17,7 +17,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        PlacesList().inject(container).environment(\.managedObjectContext, container.appState.userData.moc)
+        PlacesList().inject(container)
     }
 }
 

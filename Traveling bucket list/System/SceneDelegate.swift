@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import RealmSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,8 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let environment = AppEnvironment.bootstrap()
         let contentView = ContentView(container: environment.container)
-          //  .environment(\.managedObjectContext, environment.container.appState.userData.moc)
-        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)

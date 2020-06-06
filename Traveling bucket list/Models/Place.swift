@@ -8,5 +8,16 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 
-extension Place: Identifiable { }
+class Place: Object ,Identifiable {
+    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var title = ""
+    @objc dynamic var info = ""
+    //@objc dynamic var orderInList = 0
+   // @objc dynamic var color = Color.uiColor(.blue)
+    
+    override static func primaryKey() -> String? {
+      return "id"
+    }
+}

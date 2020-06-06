@@ -92,36 +92,12 @@ struct ShareView: View {
     }
     
     func saveData(){
-        let moc = persistentContainer.viewContext
-        let place = Place(context: moc)
-        place.id = UUID()
-        place.title = self.title
-        place.info = self.descripton
-        place.color = self.color.uiColor()
-        try? moc.save()
-    }
-    
-    // MARK: -  Core Data
-    var persistentContainer: NSPersistentContainer = {
-        let container = SharedPersistentContainer(name: "TravelBucketList")
-        
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    
-    mutating func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
+//        let moc = persistentContainer.viewContext
+//        let place = Place(context: moc)
+//        place.id = UUID()
+//        place.title = self.title
+//        place.info = self.descripton
+//        place.color = self.color.uiColor()
+//        try? moc.save()
     }
 }

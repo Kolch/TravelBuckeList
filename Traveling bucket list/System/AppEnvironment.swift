@@ -24,7 +24,7 @@ extension AppEnvironment {
     }
     
     private static func configuredDBRepositories(appState: AppState) -> DIContainer.DBRepositories {
-        let placesDBRepository = RealPlacesDBRepository(moc: appState.userData.moc)
+        let placesDBRepository = RealPlacesDBRepository(realm: appState.userData.realm)
         return .init(placesRepository: placesDBRepository)
     }
     

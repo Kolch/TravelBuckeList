@@ -9,46 +9,46 @@
 import Foundation
 import CoreData
 import UIKit
+import RealmSwift
 
 protocol PlacesDBRepository {
-    func addPlace(id: UUID, title: String, info: String, color: UIColor)
+    func addPlace(_ place: Place)
     func deletePlace(_ place: Place)
     func loadPlaces() -> [Place]
 }
 
 struct RealPlacesDBRepository: PlacesDBRepository {
     
-    let moc: NSManagedObjectContext
-
-    func addPlace(id: UUID, title: String, info: String, color: UIColor){
-        let place = Place(context: moc)
-        place.id = id
-        place.title = title
-        place.color = color
-        place.info = info
-        try? moc.save()
+    var realm: Realm
+    
+    init(realm: Realm){
+        self.realm = realm
+    }
+    
+    func addPlace(_ place: Place){
+        print("add place")
+        try? realm.write {
+            realm.add(place)
+        }
     }
     
     func deletePlace(_ place: Place){
-        moc.delete(place)
-        try? moc.save()
+        DispatchQueue.main.async {
+            try! self.realm.write {
+                self.realm.delete(place)
+            }
+        }
     }
     
     func loadPlaces() -> [Place] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Place")
-        do {
-            let results = try moc.fetch(fetchRequest)
-            let  places = results as! [Place]
-            return places
-        } catch {
-            NSLog("Error on fetching core data")
-            return []
-        }
+        print("get places")
+        let places = realm.objects(Place.self)
+        return Array(places)
     }
 }
 
 struct StubPlacesDBRepository: PlacesDBRepository {
-    func addPlace(id: UUID, title: String, info: String, color: UIColor) {}
+    func addPlace(_ place: Place) {}
     func deletePlace(_ place: Place){}
     func loadPlaces() -> [Place] { return [] }
 }

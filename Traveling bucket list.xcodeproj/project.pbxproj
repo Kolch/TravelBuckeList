@@ -15,12 +15,8 @@
 		A866FAC824841A8C000BD930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A866FAC624841A8C000BD930 /* LaunchScreen.storyboard */; };
 		A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD124841C3E000BD930 /* PlaceRow.swift */; };
 		A866FAD424841C62000BD930 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FAD324841C62000BD930 /* Place.swift */; };
-		A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
 		A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */; };
 		A8A9A3682487B07200D0E8C3 /* PlacesDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9A3672487B07200D0E8C3 /* PlacesDBRepository.swift */; };
-		A8B1C62D248689A5005693B6 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */; };
-		A8B1C63124868CF3005693B6 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */; };
-		A8B1C63224868CF8005693B6 /* TravelBucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */; };
 		A8B1C637248713E8005693B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C636248713E8005693B6 /* ContentView.swift */; };
 		A8B1C63A2487145B005693B6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C6392487145B005693B6 /* AppState.swift */; };
 		A8B1C63C24871584005693B6 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1C63B24871584005693B6 /* DependencyInjector.swift */; };
@@ -76,11 +72,9 @@
 		A866FAC924841A8C000BD930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A866FAD124841C3E000BD930 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
 		A866FAD324841C62000BD930 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelBucketList.xcdatamodel; sourceTree = "<group>"; };
 		A86FE8D12485B02D0076ABB0 /* CustomTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiled.swift; sourceTree = "<group>"; };
 		A86FE8D82485B8230076ABB0 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		A8A9A3672487B07200D0E8C3 /* PlacesDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDBRepository.swift; sourceTree = "<group>"; };
-		A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPersistentContainer.swift; sourceTree = "<group>"; };
 		A8B1C636248713E8005693B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A8B1C6392487145B005693B6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A8B1C63B24871584005693B6 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
@@ -166,7 +160,6 @@
 				A866FAD524841DBA000BD930 /* Models */,
 				A8B1C6382487142D005693B6 /* Injected */,
 				A8B1C63F248716FB005693B6 /* Interactors */,
-				A8F1B24E2484205400F8E64C /* Persistence */,
 				A8A9A3662487B04A00D0E8C3 /* Repositories */,
 				A8B1C633248711C4005693B6 /* UI */,
 				A866FAD024841AD0000BD930 /* Resources */,
@@ -270,15 +263,6 @@
 				A8CDF56C2486710700A62D79 /* Info.plist */,
 			);
 			path = BucketListShare;
-			sourceTree = "<group>";
-		};
-		A8F1B24E2484205400F8E64C /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-				A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */,
-				A8B1C62C248689A5005693B6 /* SharedPersistentContainer.swift */,
-			);
-			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,14 +417,12 @@
 				A8F1B252248432B000F8E64C /* NewPlace.swift in Sources */,
 				A8F1B254248444E700F8E64C /* Colors.swift in Sources */,
 				A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */,
-				A86FE8AB24854D130076ABB0 /* TravelBucketList.xcdatamodeld in Sources */,
 				A8B1C63E24871633005693B6 /* InteractorsContainer.swift in Sources */,
 				A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */,
 				A8F1B25724844ED200F8E64C /* NewPlaceView.swift in Sources */,
 				A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */,
 				A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */,
 				A8B1C63A2487145B005693B6 /* AppState.swift in Sources */,
-				A8B1C62D248689A5005693B6 /* SharedPersistentContainer.swift in Sources */,
 				A8B1C637248713E8005693B6 /* ContentView.swift in Sources */,
 				A866FAC024841A8B000BD930 /* PlacesList.swift in Sources */,
 				A866FAD424841C62000BD930 /* Place.swift in Sources */,
@@ -454,8 +436,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CDF5792486736800A62D79 /* ShareView.swift in Sources */,
-				A8B1C63224868CF8005693B6 /* TravelBucketList.xcdatamodeld in Sources */,
-				A8B1C63124868CF3005693B6 /* SharedPersistentContainer.swift in Sources */,
 				A8CDF57A24867A6D00A62D79 /* Colors.swift in Sources */,
 				A8CDF5682486710700A62D79 /* ShareViewController.swift in Sources */,
 			);
@@ -726,19 +706,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A86FE8A924854D130076ABB0 /* TravelBucketList.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */,
-			);
-			currentVersion = A86FE8AA24854D130076ABB0 /* TravelBucketList.xcdatamodel */;
-			path = TravelBucketList.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A866FAB024841A8B000BD930 /* Project object */;
 }

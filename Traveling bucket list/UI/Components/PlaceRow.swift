@@ -22,7 +22,7 @@ struct PlaceRow: View {
             .padding()
             Spacer()
         }
-        .background(Color(place.color as? UIColor ?? UIColor.lightGray))
+        .background(Color(UIColor.lightGray))
         .cornerRadius(10)
     }
 }

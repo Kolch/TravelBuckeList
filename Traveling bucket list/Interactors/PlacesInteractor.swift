@@ -11,9 +11,10 @@ import CoreData
 import SwiftUI
 
 protocol  PlacesInteractor {
-    func removePlace(at offsets: IndexSet)
+    func removePlace(_ place: Place)
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle)
     func addNewPlace(id: UUID, title: String, info: String, color: UIColor)
+    func loadPlaces()
 }
 
 struct RealPlacesInteractor: PlacesInteractor {
@@ -26,11 +27,8 @@ struct RealPlacesInteractor: PlacesInteractor {
         self.dbRepository = dbRepository
     }
     
-    func removePlace(at offsets: IndexSet) {
-        for index in offsets {
-            let place = appState.userData.places[index]
-            dbRepository.deletePlace(place)
-        }
+    func removePlace(_ place: Place) {
+        dbRepository.deletePlace(place)
     }
     
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle){
@@ -39,12 +37,23 @@ struct RealPlacesInteractor: PlacesInteractor {
     }
     
     func addNewPlace(id: UUID, title: String, info: String, color: UIColor){
-        dbRepository.addPlace(id: id, title: title, info: info, color: color)
+        let place = Place()
+        place.id = UUID().uuidString
+        place.title = title
+        place.info = info
+       // place.color = color
+        dbRepository.addPlace(place)
+    }
+    
+    func loadPlaces(){
+        let places = dbRepository.loadPlaces()
+        appState.userData.places = places
     }
 }
 
 struct StubPlacesInteractor: PlacesInteractor {
-    func removePlace(at offsets: IndexSet){}
+    func loadPlaces(){}
+    func removePlace(_ place: Place){}
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle){}
     func addNewPlace(id: UUID, title: String, info: String, color: UIColor){}
 }

@@ -8,37 +8,44 @@
 
 import Foundation
 import SwiftUI
-import CoreData
-
+import Combine
+import RealmSwift
 class AppState: Equatable {
+    
+    var userData = UserData()
+    
     static func == (lhs: AppState, rhs: AppState) -> Bool {
         return lhs.userData == rhs.userData
     }
-    
-    var userData = UserData()
 }
 
 extension AppState {
-    class UserData: Equatable {
+    class UserData: Equatable, ObservableObject {
+        
+        @Published var places:[Place]
+        var realm: Realm!
+        
+        private var placesToken: NotificationToken?
+        init(){
+            realm = try! Realm()
+            places = Array(realm.objects(Place.self)) // Convert Realm results object to Array
+            activateChannelsToken()
+        }
+        
+        private func activateChannelsToken() {
+            let realm = try! Realm()
+            let places = realm.objects(Place.self)
+            placesToken = places.observe { _ in
+                self.places = Array(places)
+            }
+        }
+        
         static func == (lhs: AppState.UserData, rhs: AppState.UserData) -> Bool {
             return lhs.places == rhs.places
         }
         
-        
-        var moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        //@FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
-        
-        var places:[Place]
-        {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Place")
-            do {
-                let results = try moc.fetch(fetchRequest)
-                let  places = results as! [Place]
-                return places
-            } catch {
-                NSLog("Error on fetching core data")
-                return []
-            }
+        deinit {
+            placesToken?.invalidate()
         }
     }
 }

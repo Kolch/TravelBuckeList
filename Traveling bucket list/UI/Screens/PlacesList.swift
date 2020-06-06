@@ -11,14 +11,12 @@ import UIKit
 import Combine
 
 struct PlacesList: View {
-    @FetchRequest(entity: Place.entity(), sortDescriptors: []) var places: FetchedResults<Place>
     @Environment(\.injected) private var injected: DIContainer
-    @Environment(\.managedObjectContext) var moc
     
     @State private var shouldReload: Bool = false
     @State private var showModal: Bool = false
     @State private var navigationButtonID = UUID()
-    @State private var menuButtonID = UUID()
+   // @State private var places: [Place] = []
     
     init() {
         UITableView.appearance().separatorColor = .clear
@@ -37,7 +35,7 @@ struct PlacesList: View {
                         }
                     }
                 }
-                if places.isEmpty {
+                if injected.appState.userData.places.isEmpty {
                     Text("Empty")
                 }
             }
@@ -59,7 +57,6 @@ struct PlacesList: View {
                 .foregroundColor(.black)
         }
         .onAppear {
-            //self.injected.interactors.placesInteractor.loadPlaces()
         }
     }
 }
@@ -67,9 +64,11 @@ struct PlacesList: View {
 
 private extension PlacesList {
     func deletePlace(at index: IndexSet){
-        injected.interactors
-        .placesInteractor.removePlace(at: index)
-        self.menuButtonID = UUID()
+        if let index = index.first {
+            injected.interactors
+            .placesInteractor
+                .removePlace(injected.appState.userData.places[index])
+        }
     }
     
     func generateFeedBack(style: UIImpactFeedbackGenerator.FeedbackStyle){
@@ -80,10 +79,6 @@ private extension PlacesList {
 
 struct PlacesListView_Previews: PreviewProvider {
     static var previews: some View {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let place = Place.init(context: context)
-        place.title = "Title"
-        place.color = Colors.random.uiColor()
-        return PlacesList().environment(\.managedObjectContext, context)
+        return PlacesList()
     }
 }

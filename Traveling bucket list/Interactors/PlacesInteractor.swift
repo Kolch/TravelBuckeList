@@ -11,6 +11,7 @@ import CoreData
 import SwiftUI
 
 protocol  PlacesInteractor {
+    func move(from source: IndexSet, to destination: Int)
     func removePlace(at offsets: IndexSet)
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle)
     func addNewPlace(id: UUID, title: String, info: String, color: UIColor)
@@ -30,7 +31,7 @@ struct RealPlacesInteractor: PlacesInteractor {
     func removePlace(at offsets: IndexSet) {
         guard let index = offsets.first else { return }
         appState.userData.realm.beginWrite()
-        appState.userData.places.list.remove(at: index)
+        appState.userData.placesList.list.remove(at: index)
         try! appState.userData.realm.commitWrite()
     }
     
@@ -46,7 +47,7 @@ struct RealPlacesInteractor: PlacesInteractor {
         place.info = info
        // place.color = color
         appState.userData.realm.beginWrite()
-        appState.userData.places.list.append(place)
+        appState.userData.placesList.list.append(place)
         try! appState.userData.realm.commitWrite()
     }
     
@@ -54,9 +55,16 @@ struct RealPlacesInteractor: PlacesInteractor {
 //        let places = dbRepository.loadPlaces()
 //        appState.userData.places = places
     }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        appState.userData.realm.beginWrite()
+        appState.userData.placesList.list.move(fromOffsets: source, toOffset: destination)
+        try! appState.userData.realm.commitWrite()
+    }
 }
 
 struct StubPlacesInteractor: PlacesInteractor {
+    func move(from source: IndexSet, to destination: Int){}
     func loadPlaces(){}
     func removePlace(at offsets: IndexSet){}
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle){}

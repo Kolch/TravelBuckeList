@@ -6,6 +6,8 @@
 //  Copyright © 2020 alex kolhc. All rights reserved.
 //
 
+// got it from here https://gist.github.com/Gujci/8307ab63bec7143486cab8dfa258acfd
+
 import Foundation
 
 import RealmSwift

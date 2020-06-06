@@ -25,17 +25,22 @@ struct AllPlaces: View {
         NavigationView {
             ZStack {
                 List {
-                    ForEach(injected.appState.userData.places.list.keyedEnumeration){ key in
-                        PlaceRow(place: self.injected.appState.userData.places.list[key]!)
+                    ForEach(injected.appState.userData.placesList.list.keyedEnumeration){ key in
+                        PlaceRow(place: self.injected.appState.userData.placesList.list[key]!)
                     }
                     .onDelete { index in
                         withAnimation(.easeInOut) {
                             self.deletePlace(at: index)
                         }
                     }
+                        .onMove { (indexSet, int) in
+                            self.injected.interactors.placesInteractor.move(from: indexSet, to: int)
+                            self.navigationButtonID = UUID() // TODO: need to find a way to remove this
+                    }
                 }
                 .navigationBarTitle("Must see")
                 .navigationBarItems(
+                    leading: EditButton(),
                     trailing: Button(action: {
                         self.showModal.toggle()
                         self.generateFeedBack(style: .heavy)
@@ -59,6 +64,7 @@ struct AllPlaces: View {
 private extension AllPlaces {
     func deletePlace(at index: IndexSet){
         injected.interactors.placesInteractor.removePlace(at: index)
+        self.navigationButtonID = UUID() // TODO: need to find a way to remove this
     }
     
     func generateFeedBack(style: UIImpactFeedbackGenerator.FeedbackStyle){

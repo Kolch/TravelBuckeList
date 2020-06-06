@@ -10,9 +10,9 @@ import Foundation
 import SwiftUI
 import Combine
 import RealmSwift
-class AppState: Equatable {
+class AppState: Equatable, ObservableObject {
     
-    var userData = UserData()
+    @Published var userData = UserData()
     
     static func == (lhs: AppState, rhs: AppState) -> Bool {
         return lhs.userData == rhs.userData
@@ -22,26 +22,25 @@ class AppState: Equatable {
 extension AppState {
     struct UserData: Equatable {
         
-        var places: PlacesList
+        var placesList: PlacesList
         var realm: Realm!
         
         init(){
             realm = try! Realm()
             if let places = realm.objects(PlacesList.self).first {
-                self.places = places
+                self.placesList = places
             } else {
                 // create empty list
                 let list = PlacesList()
                 realm.beginWrite()
                 realm.add(list)
                 try! realm.commitWrite()
-                self.places = list
+                self.placesList = list
             }
-            print(places)
         }
         
         static func == (lhs: AppState.UserData, rhs: AppState.UserData) -> Bool {
-            return lhs.places == rhs.places
+            return lhs.placesList == rhs.placesList
         }
     }
 }

@@ -14,26 +14,26 @@ struct PlaceRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(place.title ?? "Unknown")
+                Text(place.title)
                     .font(.title)
-                Text(place.info ?? "")
+                Text(place.info)
                     .font(.subheadline)
             }
             .padding()
             Spacer()
         }
-        .background(Color(UIColor.lightGray))
+        .background(Color(UIColor(hex: place.color) ?? UIColor.lightGray))
         .cornerRadius(10)
     }
 }
 
-//
-//struct PlaceRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            PlaceRow(place: placeData[0])
-//            PlaceRow(place: placeData[1])
-//        }
-//            .previewLayout(.fixed(width: 300, height: 100))
-//    }
-//}
+
+struct PlaceRow_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            PlaceRow(place: Place())
+            PlaceRow(place: Place())
+        }
+            .previewLayout(.fixed(width: 300, height: 100))
+    }
+}

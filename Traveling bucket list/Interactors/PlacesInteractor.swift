@@ -45,16 +45,13 @@ struct RealPlacesInteractor: PlacesInteractor {
         place.id = UUID().uuidString
         place.title = title
         place.info = info
-       // place.color = color
+        place.color = color.hexString(.d8)
         appState.userData.realm.beginWrite()
         appState.userData.placesList.list.append(place)
         try! appState.userData.realm.commitWrite()
     }
     
-    func loadPlaces(){
-//        let places = dbRepository.loadPlaces()
-//        appState.userData.places = places
-    }
+    func loadPlaces(){}
     
     func move(from source: IndexSet, to destination: Int) {
         appState.userData.realm.beginWrite()

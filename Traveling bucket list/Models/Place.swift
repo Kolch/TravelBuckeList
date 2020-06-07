@@ -14,9 +14,8 @@ class Place: Object, Identifiable {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var title = ""
     @objc dynamic var info = ""
-    //@objc dynamic var orderInList = 0
-   // @objc dynamic var color = Color.uiColor(.blue)
-//
+    @objc dynamic var color = UIColor.blue.hexString(.d8)
+    
     override static func primaryKey() -> String? {
       return "id"
     }

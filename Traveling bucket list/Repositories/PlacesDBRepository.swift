@@ -26,7 +26,6 @@ struct RealPlacesDBRepository: PlacesDBRepository {
     }
     
     func addPlace(_ place: Place){
-        print("add place")
         try? realm.write {
             realm.add(place)
         }
@@ -41,7 +40,6 @@ struct RealPlacesDBRepository: PlacesDBRepository {
     }
     
     func loadPlaces() -> Results<Place> {
-        print("get places")
         let places = realm.objects(Place.self)
         return places
     }

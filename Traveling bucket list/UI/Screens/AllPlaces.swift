@@ -30,7 +30,8 @@ struct AllPlaces: View {
                     }
                     .onDelete { index in
                         withAnimation(.easeInOut) {
-                            self.deletePlace(at: index)
+                            self.injected.interactors.placesInteractor.removePlace(at: index)
+                            self.navigationButtonID = UUID() // TODO: need to find a way to remove this
                         }
                     }
                         .onMove { (indexSet, int) in
@@ -43,7 +44,8 @@ struct AllPlaces: View {
                     leading: EditButton(),
                     trailing: Button(action: {
                         self.showModal.toggle()
-                        self.generateFeedBack(style: .heavy)
+                        self.injected.interactors.placesInteractor
+                            .generatFeedbackWith(style: .heavy)
                     }) {
                         Image("plus")
                     }
@@ -57,19 +59,6 @@ struct AllPlaces: View {
                     .foregroundColor(.black)
             }
         }
-    }
-}
-
-
-private extension AllPlaces {
-    func deletePlace(at index: IndexSet){
-        injected.interactors.placesInteractor.removePlace(at: index)
-        self.navigationButtonID = UUID() // TODO: need to find a way to remove this
-    }
-    
-    func generateFeedBack(style: UIImpactFeedbackGenerator.FeedbackStyle){
-        injected.interactors.placesInteractor
-            .generatFeedbackWith(style: style)
     }
 }
 

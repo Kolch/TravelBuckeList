@@ -16,8 +16,10 @@ struct Colors: Codable, Hashable {
     static var c_4 = UIColor(red: 0.949, green: 0.788, blue: 0.298, alpha: 1)
     static var c_5 = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
     static var c_6 = UIColor(red: 0.922, green: 0.341, blue: 0.341, alpha: 1)
-    
-    static var all    = [c_1, c_2, c_3, c_4, c_5, c_6]
+    static var c_7 = UIColor(red: 200/255, green: 236/255, blue: 91/255, alpha: 1)
+    static var c_8 = UIColor(red: 245/255, green: 190/255, blue: 205/255, alpha: 1)
+    static var c_9 = UIColor(red: 124/255, green: 200/255, blue: 232/255, alpha: 1)
+    static var all = [c_1, c_2, c_3, c_4, c_5, c_6, c_7, c_8, c_9]
     
     static var random: Color {
         return Color.init(Colors.all.randomElement()!)

@@ -16,6 +16,8 @@ struct AllPlaces: View {
     @State private var shouldReload: Bool = false
     @State private var showModal: Bool = false
     @State private var navigationButtonID = UUID()
+    @State private var showDetail: Bool = false
+    @State private var placeToPass: Place = Place()
     
     init(){
         UITableView.appearance().separatorColor = .clear
@@ -27,6 +29,14 @@ struct AllPlaces: View {
                 List {
                     ForEach(injected.appState.userData.placesList.list.keyedEnumeration){ key in
                         PlaceRow(place: self.injected.appState.userData.placesList.list[key]!)
+                            .onTapGesture {
+                                self.showDetail.toggle()
+                                self.placeToPass = self.injected.appState.userData.placesList.list[key]!
+                                
+                        }
+                        .sheet(isPresented: self.$showDetail) {
+                            PlaceDetail(place: self.placeToPass).environment(\.injected, self.injected)
+                        }
                     }
                     .onDelete { index in
                         withAnimation(.easeInOut) {
@@ -34,9 +44,9 @@ struct AllPlaces: View {
                             self.navigationButtonID = UUID() // TODO: need to find a way to remove this
                         }
                     }
-                        .onMove { (indexSet, int) in
-                            self.injected.interactors.placesInteractor.move(from: indexSet, to: int)
-                            self.navigationButtonID = UUID() // TODO: need to find a way to remove this
+                    .onMove { (indexSet, int) in
+                        self.injected.interactors.placesInteractor.move(from: indexSet, to: int)
+                        self.navigationButtonID = UUID() // TODO: need to find a way to remove this
                     }
                 }
                 .navigationBarTitle("Must see")

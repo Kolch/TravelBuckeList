@@ -29,6 +29,8 @@
 		A8CDF56F2486710700A62D79 /* BucketListShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A8CDF5652486710700A62D79 /* BucketListShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A8CDF5792486736800A62D79 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDF5782486736800A62D79 /* ShareView.swift */; };
 		A8CDF57A24867A6D00A62D79 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B253248444E700F8E64C /* Colors.swift */; };
+		A8EDE54F248CFE6100CD6CC6 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EDE54E248CFE6100CD6CC6 /* PlaceDetail.swift */; };
+		A8EDE551248D081A00CD6CC6 /* ReusablePlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EDE550248D081A00CD6CC6 /* ReusablePlaceView.swift */; };
 		A8F1B252248432B000F8E64C /* NewPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B251248432B000F8E64C /* NewPlace.swift */; };
 		A8F1B254248444E700F8E64C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B253248444E700F8E64C /* Colors.swift */; };
 		A8F1B25B24845AF200F8E64C /* PickColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1B25A24845AF200F8E64C /* PickColor.swift */; };
@@ -89,6 +91,8 @@
 		A8CDF56C2486710700A62D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8CDF5732486711000A62D79 /* BucketListShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BucketListShare.entitlements; sourceTree = "<group>"; };
 		A8CDF5782486736800A62D79 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		A8EDE54E248CFE6100CD6CC6 /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
+		A8EDE550248D081A00CD6CC6 /* ReusablePlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePlaceView.swift; sourceTree = "<group>"; };
 		A8F1B251248432B000F8E64C /* NewPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlace.swift; sourceTree = "<group>"; };
 		A8F1B253248444E700F8E64C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A8F1B25A24845AF200F8E64C /* PickColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickColor.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				A8B1C636248713E8005693B6 /* ContentView.swift */,
 				A866FABF24841A8B000BD930 /* AllPlaces.swift */,
 				A8F1B251248432B000F8E64C /* NewPlace.swift */,
+				A8EDE54E248CFE6100CD6CC6 /* PlaceDetail.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			children = (
 				A866FAD124841C3E000BD930 /* PlaceRow.swift */,
 				A8F1B25A24845AF200F8E64C /* PickColor.swift */,
+				A8EDE550248D081A00CD6CC6 /* ReusablePlaceView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -423,7 +429,9 @@
 				A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */,
 				A8176D41248C3E9B00E3F42C /* ListKey.swift in Sources */,
 				A8B1C63A2487145B005693B6 /* AppState.swift in Sources */,
+				A8EDE54F248CFE6100CD6CC6 /* PlaceDetail.swift in Sources */,
 				A8B1C637248713E8005693B6 /* ContentView.swift in Sources */,
+				A8EDE551248D081A00CD6CC6 /* ReusablePlaceView.swift in Sources */,
 				A866FAC024841A8B000BD930 /* AllPlaces.swift in Sources */,
 				A866FAD424841C62000BD930 /* Place.swift in Sources */,
 				A8A9A3682487B07200D0E8C3 /* PlacesDBRepository.swift in Sources */,

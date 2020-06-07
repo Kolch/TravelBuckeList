@@ -16,6 +16,7 @@ protocol  PlacesInteractor {
     func generatFeedbackWith(style: UIImpactFeedbackGenerator.FeedbackStyle)
     func addNewPlace(id: UUID, title: String, info: String, color: UIColor)
     func loadPlaces()
+    func editPlace(id: String, color: UIColor, title: String, info: String)
 }
 
 struct RealPlacesInteractor: PlacesInteractor {
@@ -58,9 +59,20 @@ struct RealPlacesInteractor: PlacesInteractor {
         appState.userData.placesList.list.move(fromOffsets: source, toOffset: destination)
         try! appState.userData.realm.commitWrite()
     }
+    
+    func editPlace(id: String, color: UIColor, title: String, info: String) {
+        if let placeToEdit = appState.userData.placesList.list.filter({$0.id == id}).first {
+            appState.userData.realm.beginWrite()
+            placeToEdit.color = color.hexString(.d8)
+            placeToEdit.title = title
+            placeToEdit.info = info
+            try! appState.userData.realm.commitWrite()
+        }
+    }
 }
 
 struct StubPlacesInteractor: PlacesInteractor {
+    func editPlace(id: String, color: UIColor, title: String, info: String) {}
     func move(from source: IndexSet, to destination: Int){}
     func loadPlaces(){}
     func removePlace(at offsets: IndexSet){}

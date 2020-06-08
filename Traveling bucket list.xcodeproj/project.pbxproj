@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A8176D41248C3E9B00E3F42C /* ListKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8176D40248C3E9B00E3F42C /* ListKey.swift */; };
+		A81DDB8E248E4DFE00615A85 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DDB8D248E4DFE00615A85 /* SideMenu.swift */; };
 		A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABB24841A8B000BD930 /* AppDelegate.swift */; };
 		A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABD24841A8B000BD930 /* SceneDelegate.swift */; };
 		A866FAC024841A8B000BD930 /* AllPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866FABF24841A8B000BD930 /* AllPlaces.swift */; };
@@ -65,6 +66,7 @@
 		7B23371B6CA663779776C5BC /* Pods-Traveling bucket list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.debug.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.debug.xcconfig"; sourceTree = "<group>"; };
 		7DEF84731C62032592297E88 /* Pods-Traveling bucket list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveling bucket list.release.xcconfig"; path = "Target Support Files/Pods-Traveling bucket list/Pods-Traveling bucket list.release.xcconfig"; sourceTree = "<group>"; };
 		A8176D40248C3E9B00E3F42C /* ListKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKey.swift; sourceTree = "<group>"; };
+		A81DDB8D248E4DFE00615A85 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		A866FAB824841A8B000BD930 /* Traveling bucket list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Traveling bucket list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A866FABB24841A8B000BD930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A866FABD24841A8B000BD930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				A866FAD124841C3E000BD930 /* PlaceRow.swift */,
 				A8F1B25A24845AF200F8E64C /* PickColor.swift */,
 				A8EDE550248D081A00CD6CC6 /* ReusablePlaceView.swift */,
+				A81DDB8D248E4DFE00615A85 /* SideMenu.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				A8F1B254248444E700F8E64C /* Colors.swift in Sources */,
 				A866FABC24841A8B000BD930 /* AppDelegate.swift in Sources */,
 				A8B1C63E24871633005693B6 /* InteractorsContainer.swift in Sources */,
+				A81DDB8E248E4DFE00615A85 /* SideMenu.swift in Sources */,
 				A866FABE24841A8B000BD930 /* SceneDelegate.swift in Sources */,
 				A866FAD224841C3E000BD930 /* PlaceRow.swift in Sources */,
 				A86FE8D22485B02D0076ABB0 /* CustomTextFiled.swift in Sources */,

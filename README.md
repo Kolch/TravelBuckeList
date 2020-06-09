@@ -1,1 +1,3 @@
 # TravelBuckeList
+
+![](preview/addingItem.gif)

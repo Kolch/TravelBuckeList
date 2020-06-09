@@ -29,12 +29,7 @@ struct AllPlaces: View {
         ZStack {
             VStack {
                 HStack {
-                    Button(action: {
-                        self.isMenuOpen.toggle()
-                    }){
-                        Image(systemName: "line.horizontal.3")
-                            .imageScale(.large)
-                    }
+                    EditButton()
                     Spacer()
                     Text("Must see").font(.title)
                     Spacer()
@@ -72,24 +67,13 @@ struct AllPlaces: View {
                             self.navigationButtonID = UUID() // TODO: need to find a way to remove this
                         }
                     }
-                    
-                }
-                .introspectTableView { table in
-                    table.isUserInteractionEnabled = !self.isMenuOpen
-                }
-            }
-                // TODO: blocks deleting tap action
-            .onTapGesture {
-                if self.isMenuOpen {
-                    self.isMenuOpen.toggle()
+                    .onMove { (indexSet, int) in
+                        self.injected.interactors.placesInteractor.move(from: indexSet, to: int)
+                        self.navigationButtonID = UUID() // TODO: need to find a way to remove this, causes lags in animation
+                    }
                 }
             }
-            
-            SideMenu(isOpen: $isMenuOpen)
-                .foregroundColor(.black)
         }
-        .offset(x: !isMenuOpen ? 0 : UIScreen.main.bounds.width - 100)
-        .animation(.default)
     }
 }
 
